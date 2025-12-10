@@ -1,182 +1,382 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ChapterNav from '../components/ChapterNav';
 import { ChevronRight } from '../components/Icons';
 
-// Helper component for Mac Product Card
-const MacProductCard = ({ 
+// --- Sub-components ---
+
+const ProductCard = ({ 
   title, 
   chip, 
   desc, 
+  price,
   image, 
   isNew,
+  badge,
+  colors
 }: { 
   title: string; 
   chip?: string; 
   desc: string; 
+  price?: string;
   image: string; 
   isNew?: boolean;
+  badge?: string;
+  colors?: string[];
 }) => (
-  <div className="flex-none w-[312px] md:w-[400px] snap-center flex flex-col items-center text-center group">
-    <div className="w-full aspect-[4/3] mb-6 flex items-end justify-center">
-        <img src={image} alt={title} className="max-w-full max-h-full object-contain" />
+  <div className="flex-none w-[280px] md:w-[360px] snap-center flex flex-col items-center text-center group p-4">
+    <div className="w-full aspect-[1.3] mb-6 flex items-end justify-center">
+        <img src={image} alt={title} className="max-w-full max-h-full object-contain drop-shadow-xl transition-transform duration-500 group-hover:scale-105" />
     </div>
-    <div className="flex flex-col gap-2">
-        {isNew && <span className="text-[#bf4800] text-[12px] font-semibold">Mới</span>}
-        <h3 className="text-[24px] md:text-[28px] font-semibold text-[#1d1d1f]">{title}</h3>
-        {chip && <span className="text-[14px] md:text-[17px] font-semibold text-[#1d1d1f]">{chip}</span>}
-        <p className="text-[14px] md:text-[17px] text-[#1d1d1f] max-w-[300px]">{desc}</p>
-        <div className="flex gap-4 mt-2 justify-center">
-            <a href="#" className="text-white bg-[#0071e3] hover:bg-[#0077ED] px-4 py-2 rounded-full text-[14px]">Tìm hiểu thêm</a>
-            <a href="#" className="text-[#0066cc] hover:underline flex items-center text-[14px]">Mua <ChevronRight /></a>
+    <div className="flex flex-col gap-2 items-center">
+        {isNew && <span className="text-[#bf4800] text-[12px] font-medium">Mới</span>}
+        {badge && <span className="text-[#bf4800] text-[12px] font-medium">{badge}</span>}
+        <h3 className="text-[21px] md:text-[24px] font-semibold text-[#1d1d1f] leading-tight">{title}</h3>
+        {chip && <span className="text-[14px] md:text-[15px] font-medium text-[#1d1d1f]">{chip}</span>}
+        
+        {colors && (
+            <div className="flex gap-1.5 my-1">
+                {colors.map((c, i) => (
+                    <div key={i} className="w-3 h-3 rounded-full shadow-sm border border-black/10" style={{backgroundColor: c}}></div>
+                ))}
+            </div>
+        )}
+
+        <p className="text-[14px] leading-relaxed text-[#1d1d1f] mt-1 max-w-[280px]">{desc}</p>
+        
+        {price && <p className="text-[14px] font-medium text-[#1d1d1f] mt-1">{price}</p>}
+
+        <div className="flex gap-3 mt-3 justify-center">
+            <a href="#" className="text-white bg-[#0071e3] hover:bg-[#0077ED] px-4 py-1.5 rounded-full text-[14px] font-medium">Tìm hiểu thêm</a>
+            <a href="#" className="text-[#0066cc] hover:underline flex items-center text-[14px] hover:text-[#004499]">Mua <ChevronRight /></a>
         </div>
     </div>
   </div>
 );
 
-// Helper for Feature Card
 const FeatureCard = ({ 
     label, 
     headline, 
+    subhead,
     image,
-    dark = false 
+    dark = false,
+    large = false
 }: { 
     label: string; 
     headline: string; 
+    subhead?: string;
     image: string;
     dark?: boolean; 
+    large?: boolean;
 }) => (
-    <div className={`relative w-[300px] md:w-[400px] h-[500px] md:h-[600px] rounded-[24px] overflow-hidden flex-none snap-center ${dark ? 'bg-black text-white' : 'bg-white text-black'} border border-gray-200 shadow-sm`}>
-        <div className="absolute inset-0">
-             <img src={image} alt={label} className="w-full h-full object-cover" />
+    <div className={`relative flex-none rounded-[24px] overflow-hidden snap-center group cursor-pointer transition-shadow hover:shadow-md
+      ${large ? 'w-[310px] md:w-[480px] h-[500px] md:h-[600px]' : 'w-[280px] md:w-[310px] h-[450px] md:h-[500px]'}
+      ${dark ? 'bg-black text-white' : 'bg-white text-[#1d1d1f]'}
+      border border-gray-200/50 shadow-sm
+    `}>
+        <div className="absolute inset-0 z-0">
+             <img src={image} alt={label} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" />
         </div>
-        <div className="relative z-10 p-8 flex flex-col h-full justify-start">
-             <span className="text-[12px] font-semibold mb-2 opacity-80">{label}</span>
-             <h3 className="text-[32px] font-semibold leading-tight">{headline}</h3>
+        <div className="relative z-10 p-6 md:p-8 flex flex-col h-full justify-start items-start text-left bg-gradient-to-b from-black/20 to-transparent">
+             <span className="text-[12px] font-semibold mb-2 opacity-90 uppercase tracking-wider">{label}</span>
+             <h3 className={`font-semibold leading-tight ${large ? 'text-[28px] md:text-[32px]' : 'text-[24px]'}`}>{headline}</h3>
+             {subhead && <p className="mt-2 text-[17px] opacity-90">{subhead}</p>}
+        </div>
+        {/* Plus icon overlay for interaction hint */}
+        <div className={`absolute bottom-6 right-6 z-10 w-8 h-8 rounded-full flex items-center justify-center backdrop-blur-md ${dark ? 'bg-white/20 text-white' : 'bg-black/10 text-black'}`}>
+            <span className="text-xl font-light">+</span>
         </div>
     </div>
 );
 
+const InfoCard = ({ icon, title, desc }: { icon: string, title: string, desc: string }) => (
+    <div className="flex-none w-[280px] md:w-[320px] p-6 md:p-8 rounded-[24px] bg-white shadow-sm border border-gray-100 snap-center flex flex-col gap-4 hover:scale-[1.02] transition-transform duration-300">
+        <img src={icon} className="w-10 h-10 object-contain self-start" alt="" />
+        <div>
+            <h3 className="text-[20px] md:text-[24px] font-semibold text-[#1d1d1f] mb-2">{title}</h3>
+            <p className="text-[14px] md:text-[15px] text-[#1d1d1f] leading-relaxed">{desc}</p>
+        </div>
+        <div className="mt-auto pt-2">
+            <button className="w-8 h-8 rounded-full bg-[#1d1d1f] text-white flex items-center justify-center">
+                <span className="text-xl pb-1">+</span>
+            </button>
+        </div>
+    </div>
+);
+
+// --- Main Page Component ---
+
 const MacPage: React.FC = () => {
+    // Simplified Tab State
+    const [activeTab, setActiveTab] = useState('all');
+
   return (
     <div className="bg-white">
       <ChapterNav />
       
-      {/* Hero Section */}
-      <section className="pt-16 pb-20 px-4 md:px-8 text-center">
-        <div className="max-w-[1200px] mx-auto">
-             <h1 className="text-[48px] md:text-[80px] font-bold tracking-tight mb-4 text-[#1d1d1f]">Mac</h1>
-             <div className="relative w-full aspect-video rounded-[32px] overflow-hidden bg-black mb-12">
-                 <img src="https://www.apple.com/assets-www/en_WW/mac/banner_card_1up/xlarge/great_ideas_3b353a83a.jpg" alt="Mac Hero" className="w-full h-full object-cover opacity-80" />
-                 <div className="absolute inset-0 flex flex-col items-center justify-center text-white p-4">
-                     <h2 className="text-[40px] md:text-[64px] font-semibold mb-4 leading-tight">Bạn nghĩ được là <br /> Mac làm được.</h2>
-                 </div>
-             </div>
-        </div>
-      </section>
+      {/* Education Ribbon */}
+      <div className="bg-[#f5f5f7] py-4 text-center px-4">
+        <p className="text-[14px] text-[#1d1d1f] max-w-4xl mx-auto">
+          Mua Mac với chính sách trợ giá cho giáo dục. <a href="#" className="text-[#0066cc] hover:underline">Mua sắm <ChevronRight /></a>
+        </p>
+      </div>
 
-      {/* Product Showcase */}
-      <section className="bg-[#f5f5f7] py-24 overflow-hidden">
-        <div className="max-w-[1440px] mx-auto">
-            <div className="flex justify-between items-end px-4 mb-12">
-                 <h2 className="text-[40px] md:text-[64px] font-semibold text-[#1d1d1f]">Khám phá các sản phẩm.</h2>
+      {/* Header Section */}
+      <section className="pt-16 pb-10 px-4 md:px-12">
+         <div className="flex flex-col md:flex-row md:items-end justify-between max-w-[1440px] mx-auto mb-12">
+            <h1 className="text-[64px] md:text-[96px] font-semibold text-[#1d1d1f] leading-none mb-6 md:mb-0">Mac</h1>
+            <div className="flex flex-col md:items-end gap-2">
+                <span className="text-[24px] md:text-[28px] font-semibold text-[#1d1d1f]">Khám phá các sản phẩm.</span>
+                <div className="flex gap-4 text-[14px] md:text-[17px]">
+                    <button onClick={() => setActiveTab('all')} className={`pb-1 border-b-2 ${activeTab === 'all' ? 'border-black text-black' : 'border-transparent text-gray-500'}`}>Tất cả</button>
+                    <button onClick={() => setActiveTab('laptop')} className={`pb-1 border-b-2 ${activeTab === 'laptop' ? 'border-black text-black' : 'border-transparent text-gray-500'}`}>Máy Tính Xách Tay</button>
+                    <button onClick={() => setActiveTab('desktop')} className={`pb-1 border-b-2 ${activeTab === 'desktop' ? 'border-black text-black' : 'border-transparent text-gray-500'}`}>Máy Tính Để Bàn</button>
+                    <button onClick={() => setActiveTab('display')} className={`pb-1 border-b-2 ${activeTab === 'display' ? 'border-black text-black' : 'border-transparent text-gray-500'}`}>Màn Hình</button>
+                </div>
             </div>
-            
-            <div className="flex gap-8 overflow-x-auto no-scrollbar px-8 pb-12 snap-x">
-                <MacProductCard 
-                    title="MacBook Air"
-                    chip="Chip M3"
+         </div>
+
+         {/* Product Grid */}
+         <div className="overflow-x-auto no-scrollbar pb-16">
+             <div className="flex gap-6 min-w-max mx-auto px-4">
+                <ProductCard 
+                    title="MacBook Air 13” và 15”"
+                    chip="Chip M4"
                     desc="Siêu mỏng, siêu nhanh để làm việc, giải trí và sáng tạo bất cứ đâu."
                     image="https://www.apple.com/assets-www/en_WW/mac/01_product_tile/xlarge/mba_13_15_08deb8525.jpg"
+                    colors={['#c8d8e0', '#e3e4e5', '#f0e4d3', '#2e3642']}
                 />
-                 <MacProductCard 
-                    title="MacBook Pro"
+                <ProductCard 
+                    title="MacBook Pro 14” và 16”"
+                    badge="Phiên bản 14” mới với M5"
                     chip="Chip M5, M4 Pro hoặc M4 Max"
                     desc="Máy tính xách tay Mac tiên tiến nhất cho các luồng công việc phức tạp."
                     image="https://www.apple.com/assets-www/en_WW/mac/01_product_tile/xlarge/mbp_14_16_3386877fa.jpg"
-                    isNew
+                    colors={['#2e2c2e', '#e3e4e5']}
                 />
-                 <MacProductCard 
+                <ProductCard 
                     title="iMac"
                     chip="Chip M4"
                     desc="Máy tính để bàn tất cả trong một tuyệt đẹp, cho sáng tạo và năng suất."
                     image="https://www.apple.com/assets-www/en_WW/mac/01_product_tile/xlarge/imac_24_13b716162.jpg"
+                    colors={['#1b4c78', '#4b2f67', '#8f2e46', '#cf5925', '#e3ab2b', '#346b41', '#e3e4e5']}
                 />
-                 <MacProductCard 
+                <ProductCard 
                     title="Mac mini"
                     chip="Chip M4 hoặc M4 Pro"
                     desc="Mac mini nhất, giá hợp lý nhất với hiệu năng khủng."
                     image="https://www.apple.com/assets-www/en_WW/mac/01_product_tile/xlarge/mac_mini_f7987f207.jpg"
                 />
-                 <MacProductCard 
+                <ProductCard 
                     title="Mac Studio"
-                    chip="Chip M2 Max hoặc M2 Ultra"
+                    chip="Chip M4 Max hoặc M3 Ultra"
                     desc="Hiệu năng mạnh mẽ và kết nối rộng mở cho các luồng công việc chuyên nghiệp."
                     image="https://www.apple.com/assets-www/en_WW/mac/01_product_tile/xlarge/mac_studio_6988bc9f9.jpg"
                 />
-            </div>
-        </div>
+                <ProductCard 
+                    title="Mac Pro"
+                    chip="Chip M2 Ultra"
+                    desc="Máy trạm chuyên nghiệp có khả năng mở rộng PCIe cho các luồng công việc phức tạp."
+                    image="https://www.apple.com/assets-www/en_WW/mac/01_product_tile/xlarge/mac_pro_e2935b773.jpg"
+                />
+                 <ProductCard 
+                    title="Studio Display"
+                    desc="Màn hình Retina 5K với camera và âm thanh tuyệt đỉnh."
+                    image="https://www.apple.com/assets-www/en_WW/mac/01_product_tile/xlarge/studio_display_01283acca.jpg"
+                />
+                 <ProductCard 
+                    title="Pro Display XDR"
+                    desc="Màn hình XDR 6K tiên tiến cho các luồng công việc chuyên nghiệp."
+                    image="https://www.apple.com/assets-www/en_WW/mac/01_product_tile/xlarge/pro_display_c1cbfb6ee.jpg"
+                />
+             </div>
+         </div>
       </section>
 
-      {/* Why Apple */}
-      <section className="py-24 px-4 bg-white">
-        <div className="max-w-[1440px] mx-auto">
-             <h2 className="text-[40px] md:text-[64px] font-semibold text-[#1d1d1f] mb-12 text-center md:text-left">Vì sao Apple là nơi tốt nhất để mua Mac.</h2>
-             <div className="flex gap-6 overflow-x-auto no-scrollbar pb-8 snap-x">
-                <div className="min-w-[280px] md:w-[320px] p-8 rounded-[24px] bg-[#f5f5f7] flex flex-col gap-4 snap-center">
-                    <img src="https://www.apple.com/assets-www/en_WW/common/icon_card/creditcard_elevated_b70609ee9.svg" className="w-10 h-10" alt="" />
-                    <h3 className="text-[24px] font-semibold">Thanh toán hàng tháng thật dễ dàng.</h3>
-                    <p className="text-[14px] text-gray-600">Bao gồm lựa chọn lãi suất 0%.</p>
-                </div>
-                <div className="min-w-[280px] md:w-[320px] p-8 rounded-[24px] bg-[#f5f5f7] flex flex-col gap-4 snap-center">
-                    <img src="https://www.apple.com/assets-www/en_WW/common/icon_card/graduationcap_elevated_e406e6e68.svg" className="w-10 h-10" alt="" />
-                    <h3 className="text-[24px] font-semibold">Tiết kiệm với chính sách trợ giá giáo dục.</h3>
-                    <p className="text-[14px] text-gray-600">Sinh viên và giảng viên có đặc quyền mua thiết bị với giá tiết kiệm.</p>
-                </div>
-                 <div className="min-w-[280px] md:w-[320px] p-8 rounded-[24px] bg-[#f5f5f7] flex flex-col gap-4 snap-center">
-                    <img src="https://www.apple.com/assets-www/en_WW/common/icon_card/desktopcomputer.and.macbook_elevated_960eac0cc.svg" className="w-10 h-10" alt="" />
-                    <h3 className="text-[24px] font-semibold">Tùy chỉnh máy Mac của bạn.</h3>
-                    <p className="text-[14px] text-gray-600">Chọn chip, bộ nhớ, dung lượng lưu trữ và cả màu sắc.</p>
-                </div>
-                 <div className="min-w-[280px] md:w-[320px] p-8 rounded-[24px] bg-[#f5f5f7] flex flex-col gap-4 snap-center">
-                    <img src="https://www.apple.com/assets-www/en_WW/common/icon_card/truck.box_elevated_d74c82127.svg" className="w-10 h-10" alt="" />
-                    <h3 className="text-[24px] font-semibold">Giao hàng miễn phí.</h3>
-                    <p className="text-[14px] text-gray-600">Giao hàng miễn phí cho tất cả các đơn hàng.</p>
-                </div>
+      {/* Great Ideas Banner */}
+      <section className="px-4 md:px-6 mb-24">
+        <div className="max-w-[1440px] mx-auto relative rounded-[32px] overflow-hidden bg-[#f5f5f7] h-[600px] md:h-[700px]">
+            <img 
+                src="https://www.apple.com/assets-www/en_WW/mac/banner_card_1up/xlarge/great_ideas_3b353a83a.jpg" 
+                alt="Great Ideas" 
+                className="w-full h-full object-cover"
+            />
+             <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6 bg-black/10">
+                 <h2 className="text-[48px] md:text-[80px] font-semibold text-white mb-2 leading-tight">Bạn nghĩ được là <br /> Mac làm được.</h2>
+                 <p className="text-[20px] md:text-[24px] text-white font-medium mb-6">Những ý tưởng lớn khởi đầu từ đây.</p>
+                 <button className="bg-white text-black px-6 py-3 rounded-full text-[17px] font-medium hover:bg-gray-100 transition-colors">
+                     Xem phim
+                 </button>
              </div>
         </div>
       </section>
 
-      {/* Feature Cards */}
-       <section className="py-24 px-4 bg-white border-t border-gray-200">
+      {/* Why Apple Section */}
+      <section className="bg-[#f5f5f7] py-24 overflow-hidden">
         <div className="max-w-[1440px] mx-auto">
-             <h2 className="text-[40px] md:text-[64px] font-semibold text-[#1d1d1f] mb-12">Tìm hiểu Mac.</h2>
-             <div className="flex gap-6 overflow-x-auto no-scrollbar pb-8 snap-x">
+             <h2 className="text-[40px] md:text-[56px] font-semibold text-[#1d1d1f] mb-16 px-4 md:px-12 text-left">Vì sao Apple là nơi tốt nhất <br className="hidden md:block"/> để mua Mac.</h2>
+             <div className="flex gap-6 overflow-x-auto no-scrollbar px-4 md:px-12 pb-12 snap-x">
+                <InfoCard 
+                    icon="https://www.apple.com/assets-www/en_WW/common/icon_card/creditcard_elevated_b70609ee9.svg"
+                    title="Thanh toán hàng tháng thật dễ dàng."
+                    desc="Bao gồm lựa chọn lãi suất 0%."
+                />
+                <InfoCard 
+                    icon="https://www.apple.com/assets-www/en_WW/common/icon_card/graduationcap_elevated_e406e6e68.svg"
+                    title="Tiết kiệm với chính sách trợ giá cho giáo dục."
+                    desc="Sinh viên và giảng viên có đặc quyền mua thiết bị với giá tiết kiệm tại Apple Store."
+                />
+                <InfoCard 
+                    icon="https://www.apple.com/assets-www/en_WW/common/icon_card/desktopcomputer.and.macbook_elevated_960eac0cc.svg"
+                    title="Tùy chỉnh máy Mac của bạn."
+                    desc="Chọn chip, bộ nhớ, dung lượng lưu trữ và cả màu sắc."
+                />
+                <InfoCard 
+                    icon="https://www.apple.com/assets-www/en_WW/common/icon_card/truck.box_elevated_d74c82127.svg"
+                    title="Giao hàng miễn phí"
+                    desc="Giao hàng luôn miễn phí. Dịch vụ giao hàng nhanh tại TP.HCM."
+                />
+                 <InfoCard 
+                    icon="https://www.apple.com/assets-www/en_WW/common/icon_card/message.and.message_elevated_39112f93f.svg"
+                    title="Mua sắm cùng Chuyên Gia Máy Mac"
+                    desc="Mua sắm trực tiếp với Chuyên Gia trực tuyến."
+                />
+             </div>
+        </div>
+      </section>
+
+      {/* Get to Know Mac (Feature Cards) */}
+      <section className="py-24 px-4 bg-white">
+        <div className="max-w-[1440px] mx-auto">
+             <h2 className="text-[40px] md:text-[64px] font-semibold text-[#1d1d1f] mb-12 px-4 md:px-8">Tìm hiểu Mac.</h2>
+             <div className="flex gap-6 overflow-x-auto no-scrollbar px-4 md:px-8 pb-12 snap-x">
                 <FeatureCard 
                     label="Hiệu Năng Và Thời Lượng Pin"
                     headline="Làm tốc độ. Suốt nhiều giờ."
                     image="https://www.apple.com/assets-www/en_WW/mac/feature_card/xlarge/fc_performance_73f99203e.jpg"
                     dark
+                    large
                 />
                  <FeatureCard 
                     label="Được thiết kế cho AI"
                     headline="Thông minh. Bảo mật. Ngay trên thiết bị."
                     image="https://www.apple.com/assets-www/en_WW/mac/01_feature_card/xlarge/fc_intelligence_0bb1dcbc6.jpg"
                     dark
+                    large
                 />
                  <FeatureCard 
                     label="macOS và Apple Intelligence"
                     headline="Dễ sử dụng. Dễ phải lòng."
                     image="https://www.apple.com/assets-www/en_WW/mac/01_feature_card/xlarge/fc_macos_627ff5fd8.jpg"
+                    large
                 />
                  <FeatureCard 
                     label="Mac + iPhone"
                     headline="Cùng nhau làm nên chuyện lớn."
                     image="https://www.apple.com/assets-www/en_WW/mac/01_feature_card/xlarge/fc_iphone_03ad8efae.jpg"
+                    large
+                />
+                 <FeatureCard 
+                    label="Khả Năng Tương Thích"
+                    headline="Mac chạy các ứng dụng yêu thích của bạn."
+                    image="https://www.apple.com/assets-www/en_WW/mac/01_feature_card/xlarge/fc_compatibility_c6a7119ac_2x.jpg"
+                    large
+                />
+                 <FeatureCard 
+                    label="Quyền Riêng Tư Và Bảo Mật"
+                    headline="Việc của bạn. Chỉ của riêng bạn."
+                    image="https://www.apple.com/assets-www/en_WW/mac/feature_card/xlarge/fc_security_63b3ffbc6_2x.jpg"
+                    dark
+                    large
                 />
              </div>
         </div>
       </section>
+
+      {/* Switch to Mac Section */}
+      <section className="py-16 px-4 bg-[#f5f5f7]">
+        <div className="max-w-[1440px] mx-auto">
+             <h2 className="text-[40px] md:text-[64px] font-semibold text-[#1d1d1f] mb-12 px-4 md:px-8">Chuyển sang Mac.</h2>
+             <div className="flex flex-col md:flex-row gap-6 px-4 md:px-8">
+                 <div className="flex-1 bg-white rounded-[24px] overflow-hidden flex flex-col md:flex-row h-[500px] md:h-[400px]">
+                     <div className="p-10 flex flex-col justify-center items-start md:w-1/2">
+                         <h3 className="text-[32px] font-semibold leading-tight mb-4">Đưa máy cũ cho chúng tôi. Tiết kiệm khi mua máy mới.</h3>
+                         <p className="text-[17px] mb-6">Với Apple Trade In, bạn có thể nhận được khoản giá trị xứng đáng khi đổi thiết bị đang dùng.</p>
+                         <a href="#" className="text-[#0066cc] hover:underline flex items-center">Xem giá trị thiết bị <ChevronRight /></a>
+                     </div>
+                     <div className="md:w-1/2 h-full">
+                         <img src="https://www.apple.com/assets-www/en_WW/mac/banner_card_2up/xlarge/trade_in_ce93ab65d.png" className="w-full h-full object-cover object-left" alt="" />
+                     </div>
+                 </div>
+             </div>
+             <div className="flex flex-col md:flex-row gap-6 px-4 md:px-8 mt-6">
+                <div className="flex-1 bg-white rounded-[24px] overflow-hidden flex flex-col md:flex-row h-[500px] md:h-[400px]">
+                     <div className="p-10 flex flex-col justify-center items-start md:w-1/2">
+                         <h3 className="text-[32px] font-semibold leading-tight mb-4">Mac làm được đó.</h3>
+                         <p className="text-[17px] mb-6">Hãy xem chuyển sang dùng Mac dễ dàng thế nào.</p>
+                         <a href="#" className="text-[#0066cc] hover:underline flex items-center">Tìm hiểu thêm <ChevronRight /></a>
+                     </div>
+                     <div className="md:w-1/2 h-full">
+                         <img src="https://www.apple.com/assets-www/vi_VN/mac/01_banner_card_2up/xlarge/mac_does_that_e85b77194_2x.png" className="w-full h-full object-cover object-left" alt="" />
+                     </div>
+                 </div>
+             </div>
+        </div>
+      </section>
+
+      {/* Mac Essentials */}
+      <section className="py-24 px-4 bg-[#f5f5f7]">
+          <div className="max-w-[1440px] mx-auto">
+             <h2 className="text-[40px] md:text-[64px] font-semibold text-[#1d1d1f] mb-12 px-4 md:px-8">Phụ kiện thiết yếu cho Mac.</h2>
+             <div className="flex flex-col md:flex-row gap-6 px-4 md:px-8">
+                 <div className="flex-1 bg-white rounded-[24px] overflow-hidden p-8 h-[500px] flex flex-col items-center text-center">
+                    <h3 className="text-[28px] font-semibold mb-2">Phụ kiện Mac</h3>
+                    <p className="text-[17px] mb-6">Khám phá bàn phím, chuột và các phụ kiện thiết yếu khác.</p>
+                    <a href="#" className="text-[#0066cc] hover:underline mb-8">Mua sắm phụ kiện Mac</a>
+                    <img src="https://www.apple.com/assets-www/en_WW/mac/01_banner_card_2up/xlarge/accessories_5e6486404_2x.png" className="w-full h-auto mt-auto" alt="" />
+                 </div>
+                 <div className="flex-1 bg-white rounded-[24px] overflow-hidden p-8 h-[500px] flex flex-col items-center text-center">
+                    <h3 className="text-[28px] font-semibold mb-2">Studio Display</h3>
+                    <p className="text-[17px] mb-6">Màn hình Retina 5K 27 inch kết hợp tuyệt đẹp với bất kỳ máy Mac nào.</p>
+                    <a href="#" className="text-[#0066cc] hover:underline mb-8">Tìm hiểu thêm</a>
+                    <img src="https://www.apple.com/assets-www/en_WW/mac/01_banner_card_2up/xlarge/display_441552c95_2x.png" className="w-full h-auto mt-auto" alt="" />
+                 </div>
+             </div>
+          </div>
+      </section>
       
+      {/* Ecosystem Accordion (Simplified as List) */}
+      <section className="py-24 px-4 bg-white">
+          <div className="max-w-[1024px] mx-auto px-4 md:px-8">
+             <h2 className="text-[40px] md:text-[64px] font-semibold text-[#1d1d1f] mb-12">Mở khoá thế giới của Apple.</h2>
+             <div className="space-y-6">
+                <div className="border-b border-gray-200 pb-6">
+                    <h3 className="text-[24px] font-semibold mb-4">Mac và iPhone</h3>
+                    <div className="flex flex-col md:flex-row gap-6 items-center">
+                        <p className="md:w-1/2 text-[17px] text-[#1d1d1f]">Trả lời cuộc gọi hoặc tin nhắn từ iPhone ngay trên Mac. Xem và điều khiển mọi thứ trên iPhone của bạn từ máy Mac với tính năng Phản Chiếu iPhone.</p>
+                        <img src="https://www.apple.com/assets-www/en_WW/mac/01_image_accordion/xlarge/mac_iphone_c3449f0e5_2x.jpg" className="md:w-1/2 rounded-xl" alt="" />
+                    </div>
+                </div>
+                 <div className="border-b border-gray-200 pb-6">
+                    <h3 className="text-[24px] font-semibold mb-4">Mac và iPad</h3>
+                    <div className="flex flex-col md:flex-row gap-6 items-center">
+                        <p className="md:w-1/2 text-[17px] text-[#1d1d1f]">Phác thảo trên iPad và bản vẽ xuất hiện ngay trên Mac của bạn. Hoặc sử dụng iPad của bạn làm màn hình thứ hai.</p>
+                        <img src="https://www.apple.com/assets-www/en_WW/mac/01_image_accordion/xlarge/mac_ipad_f4b0cf26c_2x.jpg" className="md:w-1/2 rounded-xl" alt="" />
+                    </div>
+                </div>
+                 <div className="pb-6">
+                    <h3 className="text-[24px] font-semibold mb-4">Mac và Apple Watch</h3>
+                    <div className="flex flex-col md:flex-row gap-6 items-center">
+                        <p className="md:w-1/2 text-[17px] text-[#1d1d1f]">Tự động đăng nhập vào máy Mac của bạn khi bạn đang đeo Apple Watch với tính năng Tự Động Mở Khóa.</p>
+                        <img src="https://www.apple.com/assets-www/en_WW/mac/01_image_accordion/xlarge/mac_watch_d8a3d08d7_2x.jpg" className="md:w-1/2 rounded-xl" alt="" />
+                    </div>
+                </div>
+             </div>
+             <div className="mt-12 text-center">
+                 <a href="#" className="text-[#0066cc] hover:underline text-[19px]">Tìm hiểu cách các thiết bị Apple hoạt động tốt hơn khi phối hợp cùng nhau <ChevronRight /></a>
+             </div>
+          </div>
+      </section>
+
     </div>
   );
 };
