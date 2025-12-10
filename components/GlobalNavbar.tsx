@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { NavItem } from '../types';
 import { AppleLogo, SearchIcon, BagIcon, MenuIcon } from './Icons';
 
 const navItems: NavItem[] = [
-  { name: 'Cửa Hàng', url: '#' },
-  { name: 'Mac', url: '#' },
-  { name: 'iPad', url: '#' },
-  { name: 'iPhone', url: '#' },
-  { name: 'Watch', url: '#' },
-  { name: 'AirPods', url: '#' },
-  { name: 'TV & Nhà', url: '#' },
-  { name: 'Giải Trí', url: '#' },
-  { name: 'Phụ Kiện', url: '#' },
-  { name: 'Hỗ Trợ', url: '#' },
+  { name: 'Cửa Hàng', url: '/store' },
+  { name: 'Mac', url: '/mac' },
+  { name: 'iPad', url: '/ipad' },
+  { name: 'iPhone', url: '/iphone' },
+  { name: 'Watch', url: '/watch' },
+  { name: 'AirPods', url: '/airpods' },
+  { name: 'TV & Nhà', url: '/tv-home' },
+  { name: 'Giải Trí', url: '/services' },
+  { name: 'Phụ Kiện', url: '/accessories' },
+  { name: 'Hỗ Trợ', url: '/support' },
 ];
 
 const GlobalNavbar: React.FC = () => {
@@ -36,17 +37,17 @@ const GlobalNavbar: React.FC = () => {
       <div className="max-w-[1024px] mx-auto px-4 h-full">
         {/* Desktop Nav */}
         <div className="hidden md:flex justify-between items-center h-full text-[#f5f5f7] text-xs font-light tracking-wide">
-          <a href="#" className="opacity-80 hover:opacity-100 transition-opacity p-2">
+          <Link to="/" className="opacity-80 hover:opacity-100 transition-opacity p-2">
             <AppleLogo />
-          </a>
+          </Link>
           {navItems.map((item) => (
-            <a 
+            <Link 
               key={item.name} 
-              href={item.url}
+              to={item.url}
               className="opacity-80 hover:opacity-100 transition-opacity px-2"
             >
               {item.name}
-            </a>
+            </Link>
           ))}
           <a href="#" className="opacity-80 hover:opacity-100 transition-opacity p-2">
             <SearchIcon />
@@ -58,9 +59,9 @@ const GlobalNavbar: React.FC = () => {
 
         {/* Mobile Nav */}
         <div className="md:hidden flex justify-between items-center h-full text-[#f5f5f7]">
-           <a href="#" className="opacity-80 hover:opacity-100 transition-opacity px-2">
+           <Link to="/" className="opacity-80 hover:opacity-100 transition-opacity px-2">
             <AppleLogo />
-          </a>
+          </Link>
           <div className="flex items-center">
              <a href="#" className="opacity-80 hover:opacity-100 transition-opacity px-4">
               <SearchIcon />
@@ -86,14 +87,14 @@ const GlobalNavbar: React.FC = () => {
       >
         <div className="flex flex-col px-10 py-4 text-[#f5f5f7]">
           {navItems.map((item) => (
-            <a 
+            <Link 
               key={item.name} 
-              href={item.url}
+              to={item.url}
               className="py-3 border-b border-[#424245] text-[17px] font-normal opacity-80"
               onClick={() => setIsMenuOpen(false)}
             >
               {item.name}
-            </a>
+            </Link>
           ))}
         </div>
       </div>
