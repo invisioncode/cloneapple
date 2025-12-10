@@ -12,7 +12,7 @@ const ipadChapters = [
   { name: 'Apple Pencil', icon: 'https://www.apple.com/assets-www/en_WW/ipad/chapternav/apple_pencil_607b17f9f.svg', url: '#' },
   { name: 'Bàn Phím', icon: 'https://www.apple.com/assets-www/en_WW/ipad/chapternav/keyboard_ipad_0113a1a87.svg', url: '#' },
   { name: 'Phụ Kiện', icon: 'https://www.apple.com/assets-www/en_WW/ipad/chapternav/accessories_ipad_1d680a4ad.svg', url: '#' },
-  { name: 'iPadOS', icon: 'https://www.apple.com/assets-www/en_WW/ipad/chapternav/ipados_1e9806c02.svg', url: '#' },
+  { name: 'iPadOS 26', icon: 'https://www.apple.com/assets-www/en_WW/ipad/chapternav/ipados_1e9806c02.svg', url: '#' },
   { name: 'Mua sắm iPad', icon: 'https://www.apple.com/assets-www/en_WW/ipad/chapternav/shop_ipad_a90662b1a.svg', url: '#' },
 ];
 
