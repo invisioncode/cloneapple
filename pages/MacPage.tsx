@@ -7,18 +7,14 @@ const MacProductCard = ({
   title, 
   chip, 
   desc, 
-  price, 
   image, 
   isNew,
-  dark
 }: { 
   title: string; 
   chip?: string; 
   desc: string; 
-  price?: string; 
   image: string; 
   isNew?: boolean;
-  dark?: boolean;
 }) => (
   <div className="flex-none w-[312px] md:w-[400px] snap-center flex flex-col items-center text-center group">
     <div className="w-full aspect-[4/3] mb-6 flex items-end justify-center">
