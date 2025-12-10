@@ -1,6 +1,5 @@
 import React from 'react';
 import { HeroProps } from '../types';
-import { ChevronRight } from './Icons';
 
 const HeroSection: React.FC<HeroProps> = ({ title, subtitle, ctaLinks, image, video, dark, top }) => {
   const textColor = dark ? 'text-white' : 'text-[#1d1d1f]';
