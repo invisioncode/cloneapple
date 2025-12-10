@@ -7,28 +7,28 @@ const shows: TVShow[] = [
     title: 'Kế Hoạch Bảo Vệ Gia Đình 2',
     genre: 'Hài',
     description: 'Gia đình vẫn vậy. Kế hoạch thì mới toanh.',
-    image: 'https://is1-ssl.mzstatic.com/image/thumb/G-607wKexfM07KiP8OOjOg/734x413.jpg'
+    image: 'https://is1-ssl.mzstatic.com/image/thumb/G-607wKexfM07KiP8OOjOg/1250x703.jpg'
   },
   {
     id: '2',
     title: 'Kẻ Lạc Loài',
     genre: 'Tâm lý',
     description: 'Hạnh phúc chỉ là một trạng thái của tâm trí.',
-    image: 'https://is1-ssl.mzstatic.com/image/thumb/_VJpc3bpe8DaZ7yMWZZadg/734x413.jpg'
+    image: 'https://is1-ssl.mzstatic.com/image/thumb/_VJpc3bpe8DaZ7yMWZZadg/1250x703.jpg'
   },
   {
     id: '3',
     title: 'Đường Về Cõi Chết',
     genre: 'Giật gân',
     description: 'Tò mò sẽ rước họa vào thân.',
-    image: 'https://is1-ssl.mzstatic.com/image/thumb/zbds51eIdIGcQezW3ah3gA/734x413.jpg'
+    image: 'https://is1-ssl.mzstatic.com/image/thumb/zbds51eIdIGcQezW3ah3gA/1250x703.jpg'
   },
    {
     id: '4',
     title: 'Biên Giới Cuối Cùng',
     genre: 'Hành động',
     description: 'Alaska mênh mông vô tận. Không một nơi ẩn náu.',
-    image: 'https://is1-ssl.mzstatic.com/image/thumb/vubQXype6pNn2dknTQYAOw/734x413.jpg'
+    image: 'https://is1-ssl.mzstatic.com/image/thumb/vubQXype6pNn2dknTQYAOw/1250x703.jpg'
   }
 ];
 

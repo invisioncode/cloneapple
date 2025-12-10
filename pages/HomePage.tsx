@@ -27,7 +27,7 @@ const HomePage: React.FC = () => {
               { text: 'Tìm hiểu thêm', url: '#', type: 'primary' },
               { text: 'Mua sắm iPhone', url: '#', type: 'secondary' }
           ]}
-          image="https://www.apple.com/v/home/ci/images/heroes/iphone-family/hero_iphone_family__b5al00te2aaq_large.jpg"
+          image="https://www.apple.com/v/home/cj/images/heroes/iphone-family/hero_iphone_family__fuz5j2v5xx6y_large.jpg"
           top={true}
       />
 
@@ -40,7 +40,7 @@ const HomePage: React.FC = () => {
               { text: 'Tìm hiểu thêm', url: '#', type: 'primary' },
               { text: 'Mua', url: '#', type: 'secondary' }
           ]}
-          image="https://www.apple.com/v/home/ci/images/heroes/macbook-pro-m5/hero_macbookpro__f2j8n091j7iu_large.jpg"
+          image="https://www.apple.com/v/home/ci/images/heroes/macbook-pro-m5/hero_macbook_pro_m5_announce__i8r7suk8moqe_large.jpg"
           dark={true}
           top={true}
       />
@@ -56,7 +56,7 @@ const HomePage: React.FC = () => {
                       { text: 'Tìm hiểu thêm', url: '#', type: 'primary' },
                       { text: 'Mua', url: '#', type: 'secondary' }
                   ],
-                  image: 'https://www.apple.com/v/home/ci/images/promos/airpods-pro-3/promo_airpodspro_3__e67y4728522q_large.jpg',
+                  image: 'https://www.apple.com/v/home/ci/images/promos/airpods-pro-3/promo_airpodspro_3__f6xmza7bglei_large.jpg',
                   dark: false
               },
               {
@@ -67,7 +67,7 @@ const HomePage: React.FC = () => {
                       { text: 'Tìm hiểu thêm', url: '#', type: 'primary' },
                       { text: 'Mua', url: '#', type: 'secondary' }
                   ],
-                  image: 'https://www.apple.com/v/home/ci/images/promos/ipad-pro/promo_ipad_pro__ch1666d9g26q_large.jpg',
+                  image: 'https://www.apple.com/v/home/ci/images/promos/ipad-pro/promo_ipad_pro__c529dk533k4m_large.jpg',
                   dark: true
               },
               {
@@ -78,7 +78,7 @@ const HomePage: React.FC = () => {
                       { text: 'Tìm hiểu thêm', url: '#', type: 'primary' },
                       { text: 'Mua', url: '#', type: 'secondary' }
                   ],
-                  image: 'https://www.apple.com/v/home/ci/images/promos/ipad-air/promo_ipad_air__be233h91k8me_large.jpg',
+                  image: 'https://www.apple.com/v/home/ci/images/promos/ipad-air/promo_ipad_air__bfbxzvw65c02_large.jpg',
                   dark: false
               },
                 {
@@ -90,7 +90,7 @@ const HomePage: React.FC = () => {
                       { text: 'Tìm hiểu thêm', url: '#', type: 'primary' },
                       { text: 'Mua', url: '#', type: 'secondary' }
                   ],
-                  image: 'https://www.apple.com/v/home/ci/images/promos/ipad/promo_ipad__fioegapgvyou_large.jpg',
+                  image: 'https://www.apple.com/vn/home/images/promos/ipad/promo_ipad__fioegapg12qi_large.jpg',
                   dark: false
               },
                 {
@@ -101,7 +101,7 @@ const HomePage: React.FC = () => {
                       { text: 'Tìm hiểu thêm', url: '#', type: 'primary' },
                       { text: 'Mua', url: '#', type: 'secondary' }
                   ],
-                  image: 'https://www.apple.com/v/home/ci/images/promos/apple-watch-series-11/promo_apple_watch_series_11__b7a052j615yu_large.jpg',
+                  image: 'https://www.apple.com/vn/home/images/promos/apple-watch-series-11/promo_apple_watch_series_11__b63hxviqvonm_large.jpg',
                   dark: false,
                   logo: 'Apple Watch Series 11'
               },
@@ -113,7 +113,7 @@ const HomePage: React.FC = () => {
                       { text: 'Tìm hiểu thêm', url: '#', type: 'primary' },
                       { text: 'Mua', url: '#', type: 'secondary' }
                   ],
-                  image: 'https://www.apple.com/v/home/ci/images/promos/apple-watch-ultra-3/promo_apple_watch_ultra3__g62r3353s02a_large.jpg',
+                  image: 'https://www.apple.com/vn/home/images/promos/apple-watch-ultra-3/promo_apple_watch_ultra3__bwvslhbxx99e_large.jpg',
                   dark: true,
                   logo: 'Apple Watch Ultra 3'
               }
