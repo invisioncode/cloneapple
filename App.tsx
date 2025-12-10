@@ -5,6 +5,8 @@ import Ribbon from './components/Ribbon';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import MacPage from './pages/MacPage';
+import StorePage from './pages/StorePage';
+import IPadPage from './pages/iPadPage';
 
 const App: React.FC = () => {
   return (
@@ -16,6 +18,8 @@ const App: React.FC = () => {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/mac" element={<MacPage />} />
+          <Route path="/ipad" element={<IPadPage />} />
+          <Route path="/store" element={<StorePage />} />
           {/* Placeholder routes for other nav items */}
           <Route path="*" element={<HomePage />} />
         </Routes>
