@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { HeroProps } from '../types';
 
@@ -5,7 +6,7 @@ const HeroSection: React.FC<HeroProps> = ({ title, subtitle, ctaLinks, image, vi
   const textColor = dark ? 'text-white' : 'text-[#1d1d1f]';
 
   return (
-    <div className="relative w-full h-[580px] md:h-[692px] bg-black overflow-hidden mb-3">
+    <div className="relative w-full h-[580px] md:h-[692px] bg-black overflow-hidden mb-3 group cursor-pointer">
       {/* Background Media */}
       <div className="absolute inset-0 w-full h-full">
         {video ? (
@@ -14,12 +15,12 @@ const HeroSection: React.FC<HeroProps> = ({ title, subtitle, ctaLinks, image, vi
             muted 
             loop 
             playsInline 
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-105 group-hover:opacity-90"
             src={video}
           />
         ) : (
           <div 
-            className="w-full h-full bg-cover bg-center bg-no-repeat"
+            className="w-full h-full bg-cover bg-center bg-no-repeat transition-all duration-700 ease-out group-hover:scale-105 group-hover:opacity-90"
             style={{ backgroundImage: `url(${image})` }}
           />
         )}

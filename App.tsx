@@ -43,6 +43,11 @@ const ValidatedLangLayout = () => {
   );
 };
 
+const LangRedirect = () => {
+    const { lang } = useParams();
+    return <Navigate to={`/${lang}`} replace />;
+};
+
 const App: React.FC = () => {
   return (
     <Routes>
@@ -67,7 +72,7 @@ const App: React.FC = () => {
           <Route path="choose-country-region" element={<ChooseCountryPage />} />
           
           {/* Catch all within lang redirects to lang home */}
-          <Route path="*" element={<HomePage />} />
+          <Route path="*" element={<LangRedirect />} />
       </Route>
       
       {/* Global Catch all redirects to default root */}
