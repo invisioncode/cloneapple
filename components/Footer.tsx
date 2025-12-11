@@ -58,8 +58,21 @@ const Breadcrumbs = () => {
 const Footer: React.FC = () => {
   const { lang, t } = useAppLanguage();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const loc = (path: string) => getPath(path, lang);
+
+  // Function to switch language while keeping the same path
+  const getLangUrl = (targetLang: string) => {
+    const currentPath = location.pathname;
+    const segments = currentPath.split('/');
+    // segments[0] is empty, segments[1] is the lang code
+    if (segments.length > 1) {
+        segments[1] = targetLang;
+        return segments.join('/');
+    }
+    return `/${targetLang}`;
+  };
 
   const footerData: FooterSection[] = [
     {
@@ -164,11 +177,11 @@ const Footer: React.FC = () => {
                     <Link to={loc('/sitemap')} className="hover:underline text-[#424245]">{t.footer.sitemap}</Link>
                 </div>
                 <div className="mt-2 md:mt-0 flex gap-4 font-semibold text-[#1d1d1f]">
-                     <a href="/vn" className={`hover:underline ${lang === 'vn' ? 'text-black' : 'text-gray-500'}`}>Tiếng Việt</a>
-                     <span className="text-gray-300">|</span>
-                     <a href="/en" className={`hover:underline ${lang === 'en' ? 'text-black' : 'text-gray-500'}`}>English</a>
-                     <span className="text-gray-300">|</span>
-                     <a href="/eg" className={`hover:underline ${lang === 'eg' ? 'text-black' : 'text-gray-500'}`}>مصر</a>
+                     <Link to={getLangUrl('vn')} className={`hover:underline ${lang === 'vn' ? 'text-black cursor-default' : 'text-[#6e6e73]'}`}>Tiếng Việt</Link>
+                     <span className="text-[#d2d2d7]">|</span>
+                     <Link to={getLangUrl('en')} className={`hover:underline ${lang === 'en' ? 'text-black cursor-default' : 'text-[#6e6e73]'}`}>English</Link>
+                     <span className="text-[#d2d2d7]">|</span>
+                     <Link to={getLangUrl('eg')} className={`hover:underline ${lang === 'eg' ? 'text-black cursor-default' : 'text-[#6e6e73]'}`}>مصر</Link>
                 </div>
             </div>
         </section>

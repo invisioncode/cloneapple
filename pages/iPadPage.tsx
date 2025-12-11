@@ -1,3 +1,4 @@
+
 import React from 'react';
 import ChapterNav from '../components/ChapterNav';
 import { ChevronRight } from '../components/Icons';
@@ -180,7 +181,10 @@ const IPadPage: React.FC = () => {
                     <div>
                         <h3 className="text-[28px] font-semibold mb-2">Apple Pencil</h3>
                         <p className="text-[17px] mb-6">Lên ý tưởng. Viết xuống.</p>
-                        <a href="#" className="text-[#0066cc] hover:underline mb-8">Tìm hiểu thêm về Apple Pencil</a>
+                        <div className="flex flex-col gap-2 mb-8">
+                            <a href="#" className="text-[#0066cc] hover:underline">Tìm hiểu thêm về Apple Pencil</a>
+                            <a href="#" className="text-[#0066cc] hover:underline flex items-center justify-center gap-1">Mua sắm Apple Pencil <ChevronRight /></a>
+                        </div>
                     </div>
                     <img src="https://www.apple.com/v/ipad/home/ck/images/overview/essentials/apple_pencil__ek4237c541mu_large.jpg" className="w-full h-auto mt-auto" alt="" />
                  </div>

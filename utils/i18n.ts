@@ -60,6 +60,13 @@ export const translations = {
       sitemap: 'Bản Đồ Trang Web',
       vietnam: 'Việt Nam',
       other_country: 'Chọn quốc gia hoặc khu vực',
+    },
+    aria: {
+      apple: 'Apple',
+      search: 'Tìm kiếm trên apple.com',
+      bag: 'Giỏ hàng',
+      menu: 'Menu',
+      close_menu: 'Đóng Menu'
     }
   },
   en: {
@@ -118,6 +125,13 @@ export const translations = {
       sitemap: 'Site Map',
       vietnam: 'Vietnam',
       other_country: 'Choose your country or region',
+    },
+    aria: {
+      apple: 'Apple',
+      search: 'Search apple.com',
+      bag: 'Shopping Bag',
+      menu: 'Menu',
+      close_menu: 'Close Menu'
     }
   },
   eg: {
@@ -176,6 +190,13 @@ export const translations = {
       sitemap: 'خريطة الموقع',
       vietnam: 'مصر',
       other_country: 'اختر دولتك أو منطقتك',
+    },
+    aria: {
+      apple: 'Apple',
+      search: 'البحث في apple.com',
+      bag: 'حقيبة التسوق',
+      menu: 'القائمة',
+      close_menu: 'إغلاق القائمة'
     }
   }
 };

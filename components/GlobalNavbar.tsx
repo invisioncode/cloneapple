@@ -82,7 +82,7 @@ const GlobalNavbar: React.FC = () => {
       <div className="max-w-[1024px] mx-auto px-4 h-full relative z-50 bg-[#161617]">
         {/* Desktop Nav */}
         <div className="hidden md:flex justify-between items-center h-full text-[#f5f5f7] text-xs font-light tracking-wide">
-          <Link to={loc('/')} className="opacity-80 hover:opacity-100 transition-opacity p-2">
+          <Link to={loc('/')} className="opacity-80 hover:opacity-100 transition-opacity p-2" aria-label={t.aria.apple}>
             <AppleLogo />
           </Link>
           {navItems.map((item) => (
@@ -93,35 +93,37 @@ const GlobalNavbar: React.FC = () => {
             >
                 <Link 
                   to={item.url}
-                  className={`opacity-80 hover:opacity-100 transition-opacity px-2 ${hoveredNav === item.name ? 'opacity-100' : ''}`}
+                  className={`relative group opacity-80 hover:opacity-100 transition-opacity px-2 ${hoveredNav === item.name ? 'opacity-100' : ''}`}
                 >
-                  {item.name}
+                  <span className="relative z-10">{item.name}</span>
+                  <span className="absolute -bottom-1 left-2 right-2 h-[1px] bg-[#f5f5f7] origin-center transform scale-x-0 transition-transform duration-300 ease-out group-hover:scale-x-100" />
                 </Link>
             </div>
           ))}
-          <a href="#" className="opacity-80 hover:opacity-100 transition-opacity p-2">
+          <a href="#" className="opacity-80 hover:opacity-100 transition-opacity p-2" aria-label={t.aria.search}>
             <SearchIcon />
           </a>
-          <a href="#" className="opacity-80 hover:opacity-100 transition-opacity p-2">
+          <a href="#" className="opacity-80 hover:opacity-100 transition-opacity p-2" aria-label={t.aria.bag}>
             <BagIcon />
           </a>
         </div>
 
         {/* Mobile Nav */}
         <div className="md:hidden flex justify-between items-center h-full text-[#f5f5f7]">
-           <Link to={loc('/')} className="opacity-80 hover:opacity-100 transition-opacity px-2">
+           <Link to={loc('/')} className="opacity-80 hover:opacity-100 transition-opacity px-2" aria-label={t.aria.apple}>
             <AppleLogo />
           </Link>
           <div className="flex items-center">
-             <a href="#" className="opacity-80 hover:opacity-100 transition-opacity px-4">
+             <a href="#" className="opacity-80 hover:opacity-100 transition-opacity px-4" aria-label={t.aria.search}>
               <SearchIcon />
             </a>
-            <a href="#" className="opacity-80 hover:opacity-100 transition-opacity px-4">
+            <a href="#" className="opacity-80 hover:opacity-100 transition-opacity px-4" aria-label={t.aria.bag}>
               <BagIcon />
             </a>
             <button 
               className="opacity-80 hover:opacity-100 transition-opacity px-2"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label={isMenuOpen ? t.aria.close_menu : t.aria.menu}
             >
               <MenuIcon />
             </button>
@@ -131,10 +133,10 @@ const GlobalNavbar: React.FC = () => {
 
       {/* Desktop Submenu - Keeping it simple for demo, normally would translate deep submenu items too */}
       <div 
-        className={`absolute top-[44px] left-0 w-full bg-[#161617] text-[#f5f5f7] overflow-hidden transition-all duration-300 ease-in-out border-b border-[#424245] ${
+        className={`absolute top-[44px] left-0 w-full bg-[#161617] text-[#f5f5f7] overflow-hidden transition-all duration-300 ease-in-out border-[#424245] ${
             hoveredNav && navItems.find(i => i.name === hoveredNav)?.submenu 
-            ? 'h-auto py-10 opacity-100 visible' 
-            : 'h-0 py-0 opacity-0 invisible'
+            ? 'max-h-[600px] py-10 opacity-100 visible border-b' 
+            : 'max-h-0 py-0 opacity-0 invisible border-none'
         }`}
         onMouseEnter={() => setHoveredNav(hoveredNav)}
         onMouseLeave={() => setHoveredNav(null)}
