@@ -43,7 +43,9 @@ export const ProductCard = ({
 
         <div className="flex gap-3 mt-3 justify-center">
             <a href="#" className="text-white bg-[#0071e3] hover:bg-[#0077ED] px-4 py-1.5 rounded-full text-[14px] font-medium">Tìm hiểu thêm</a>
-            <a href="#" className="text-[#0066cc] hover:underline flex items-center text-[14px] hover:text-[#004499]">Mua <ChevronRight /></a>
+            <button className="bg-white text-[#0071e3] border border-[#0071e3] hover:bg-[#0071e3] hover:text-white px-4 py-1.5 rounded-full text-[14px] font-medium transition-colors">
+                Add to Cart
+            </button>
         </div>
     </div>
   </div>

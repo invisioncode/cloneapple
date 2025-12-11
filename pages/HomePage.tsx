@@ -3,6 +3,7 @@ import React from 'react';
 import HeroSection from '../components/HeroSection';
 import PromoGrid from '../components/PromoGrid';
 import TVPlusCarousel from '../components/TVPlusCarousel';
+import IPhone17Carousel from '../components/IPhone17Carousel';
 import Ribbon from '../components/Ribbon';
 import { useAppLanguage, getPath } from '../utils/i18n';
 
@@ -105,6 +106,7 @@ const HomePage: React.FC = () => {
       />
       
       <TVPlusCarousel />
+      <IPhone17Carousel />
     </>
   );
 };
