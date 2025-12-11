@@ -2,15 +2,14 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { NavItem } from '../types';
-import { AppleLogo, SearchIcon, BagIcon, MenuIcon, ChevronRight } from './Icons';
+import { AppleLogo, SearchIcon, BagIcon, MenuIcon } from './Icons';
 import { useAppLanguage, getPath } from '../utils/i18n';
 
 const GlobalNavbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isBagOpen, setIsBagOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const [bagItems, setBagItems] = useState<any[]>([]); // Simulate empty bag initially
+  const [bagItems] = useState<any[]>([]); 
 
   const { lang, t } = useAppLanguage();
   const searchInputRef = useRef<HTMLInputElement>(null);
@@ -25,15 +24,6 @@ const GlobalNavbar: React.FC = () => {
     setIsSearchOpen(false);
     setIsBagOpen(false);
   }, [location]);
-
-  // Handle Scroll Effect
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 0);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   // Handle Click Outside to close Bag/Search
   useEffect(() => {
