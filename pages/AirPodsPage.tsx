@@ -1,7 +1,7 @@
 import React from 'react';
 import ChapterNav from '../components/ChapterNav';
 import { ChevronRight } from '../components/Icons';
-import { FeatureCard } from '../components/Cards';
+import { FeatureCard, ProductCard } from '../components/Cards';
 
 const airpodsChapters = [
   { name: 'AirPods 4', icon: 'https://www.apple.com/v/airpods/ab/images/chapternav/airpods_4_light__c51717t43yqa_large.svg', url: '#' },
@@ -238,6 +238,34 @@ const AirPodsPage: React.FC = () => {
              </p>
              <a href="#" className="bg-black text-white px-6 py-3 rounded-full text-[17px] hover:bg-gray-800 transition-colors">Tìm hiểu thêm</a>
          </div>
+      </section>
+
+      {/* Shop AirPods Section (Added to use ProductCard) */}
+      <section className="py-24 px-4 bg-[#f5f5f7]">
+          <div className="max-w-[1440px] mx-auto">
+             <h2 className="text-[40px] md:text-[64px] font-semibold text-[#1d1d1f] mb-12 px-4 md:px-12 text-center md:text-left">Mua AirPods.</h2>
+             <div className="flex gap-6 overflow-x-auto no-scrollbar px-4 md:px-12 pb-12 snap-x">
+                 <ProductCard 
+                    title="AirPods Pro 2"
+                    desc="Âm thanh đỉnh cao và tính năng khử tiếng ồn chuyên nghiệp."
+                    price="6.199.000đ"
+                    image="https://www.apple.com/v/airpods/shared/compare/f/images/compare/airpods_pro__e9nri03a65mq_large.png"
+                 />
+                 <ProductCard 
+                    title="AirPods 4"
+                    desc="Thiết kế tai nghe mở hoàn toàn mới."
+                    price="Từ 3.499.000đ"
+                    image="https://www.apple.com/v/airpods/shared/compare/f/images/compare/airpods_4__cis6k1r5q9ya_large.png"
+                 />
+                 <ProductCard 
+                    title="AirPods Max"
+                    desc="Tai nghe chụp tai tối thượng."
+                    price="13.999.000đ"
+                    image="https://www.apple.com/v/airpods/shared/compare/f/images/compare/airpods_max__f26524w0wyie_large.png"
+                    colors={['#e6c7c2', '#f0e5d8', '#344e71', '#a998c5', '#2e3642']}
+                 />
+             </div>
+          </div>
       </section>
 
     </div>

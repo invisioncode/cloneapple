@@ -28,3 +28,9 @@ export const ChevronRight = () => (
     <polyline points="9 18 15 12 9 6"></polyline>
   </svg>
 );
+
+export const ChevronLeft = () => (
+  <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
+    <polyline points="15 18 9 12 15 6"></polyline>
+  </svg>
+);

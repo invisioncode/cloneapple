@@ -1,7 +1,7 @@
 import React from 'react';
 import ChapterNav from '../components/ChapterNav';
 import { ChevronRight } from '../components/Icons';
-import { ProductCard, FeatureCard } from '../components/Cards';
+import { ProductCard, FeatureCard, InfoCard } from '../components/Cards';
 
 const iphoneChapters = [
   { name: 'iPhone 17 Pro', icon: 'https://www.apple.com/v/iphone/home/ch/images/overview/chapternav/nav_iphone_17pro__d60uog2c064i_large.png', url: '#', new: true },
@@ -82,8 +82,37 @@ const IPhonePage: React.FC = () => {
          </div>
       </section>
 
-      {/* Switch to iPhone Section */}
+      {/* Why Apple Section (Using InfoCard) */}
       <section className="bg-[#f5f5f7] py-24 overflow-hidden">
+        <div className="max-w-[1440px] mx-auto">
+             <h2 className="text-[40px] md:text-[56px] font-semibold text-[#1d1d1f] mb-16 px-4 md:px-12 text-left">Why Apple is the best place <br className="hidden md:block"/> to buy iPhone.</h2>
+             <div className="flex gap-6 overflow-x-auto no-scrollbar px-4 md:px-12 pb-12 snap-x">
+                <InfoCard 
+                    icon="https://www.apple.com/assets-www/en_WW/common/icon_card/arrow.2.squarepath.devices_elevated_fac99429a.svg"
+                    title="Save with Apple Trade In."
+                    desc="Get credit toward your next iPhone when you trade in your eligible smartphone."
+                />
+                <InfoCard 
+                    icon="https://www.apple.com/assets-www/en_WW/common/icon_card/creditcard_elevated_b70609ee9.svg"
+                    title="Pay over time, interest-free."
+                    desc="When you choose to check out with Apple Card Monthly Installments."
+                />
+                <InfoCard 
+                    icon="https://www.apple.com/assets-www/en_WW/common/icon_card/truck.box_elevated_d74c82127.svg"
+                    title="Free delivery."
+                    desc="And free returns. See checkout for delivery dates."
+                />
+                <InfoCard 
+                    icon="https://www.apple.com/assets-www/en_WW/common/icon_card/message.and.message_elevated_39112f93f.svg"
+                    title="Shop with a Specialist."
+                    desc="Get help choosing the right iPhone for you."
+                />
+             </div>
+        </div>
+      </section>
+
+      {/* Switch to iPhone Section */}
+      <section className="bg-white py-24 overflow-hidden">
         <div className="max-w-[1440px] mx-auto">
              <h2 className="text-[40px] md:text-[64px] font-semibold text-[#1d1d1f] mb-12 px-4 md:px-12 text-left">Switch to iPhone.</h2>
              <div className="flex gap-6 overflow-x-auto no-scrollbar px-4 md:px-12 pb-12 snap-x">
@@ -132,7 +161,7 @@ const IPhonePage: React.FC = () => {
       </section>
 
       {/* Essentials */}
-      <section className="py-24 px-4 bg-white">
+      <section className="py-24 px-4 bg-[#f5f5f7]">
         <div className="max-w-[1440px] mx-auto">
              <div className="flex flex-col md:flex-row justify-between items-end mb-12 px-4 md:px-8">
                  <h2 className="text-[40px] md:text-[64px] font-semibold text-[#1d1d1f]">iPhone essentials.</h2>
@@ -158,7 +187,7 @@ const IPhonePage: React.FC = () => {
       </section>
       
       {/* Ecosystem */}
-      <section className="py-24 px-4 bg-[#f5f5f7]">
+      <section className="py-24 px-4 bg-white">
           <div className="max-w-[1024px] mx-auto px-4 md:px-8">
              <h2 className="text-[40px] md:text-[64px] font-semibold text-[#1d1d1f] mb-12">Significant others.</h2>
              <div className="space-y-8">

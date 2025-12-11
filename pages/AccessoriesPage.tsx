@@ -1,7 +1,18 @@
-import React from 'react';
-import { ChevronRight } from '../components/Icons';
+import React, { useState, useRef, useEffect } from 'react';
+import { ChevronRight, ChevronLeft } from '../components/Icons';
+import ChapterNav from '../components/ChapterNav';
 
 // --- Data ---
+
+const accessoriesChapters = [
+  { name: 'Tất Cả', icon: 'https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/icon-category-all-accessories?wid=112&hei=112&fmt=png-alpha', url: '#' },
+  { name: 'Mac', icon: 'https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/icon-product-mac?wid=112&hei=112&fmt=png-alpha', url: '#' },
+  { name: 'iPad', icon: 'https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/icon-product-ipad?wid=112&hei=112&fmt=png-alpha', url: '#' },
+  { name: 'iPhone', icon: 'https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/icon-product-iphone?wid=112&hei=112&fmt=png-alpha', url: '#' },
+  { name: 'Watch', icon: 'https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/icon-product-watch?wid=112&hei=112&fmt=png-alpha', url: '#' },
+  { name: 'AirPods', icon: 'https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/icon-product-airpods?wid=112&hei=112&fmt=png-alpha', url: '#' },
+  { name: 'TV & Home', icon: 'https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/icon-product-tv?wid=112&hei=112&fmt=png-alpha', url: '#' },
+];
 
 const browseByProduct = [
   { name: 'Mac', image: 'https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/icon-product-mac?wid=112&hei=112&fmt=png-alpha' },
@@ -81,7 +92,7 @@ const holidayPicks = [
   }
 ];
 
-const travelEssentials = [
+const iphoneAccessories = [
     {
     id: 'iphone-17-pro-max-case',
     title: 'Ốp Lưng TechWoven MagSafe cho iPhone 17 Pro Max - Xanh Dương',
@@ -120,7 +131,15 @@ const travelEssentials = [
   }
 ];
 
-const chargeAndGo = [
+const watchBands = [
+  {
+    id: 'sport-loop',
+    title: 'Dây Quấn Thể Thao 45mm - Xanh Bão Tố',
+    price: '1.299.000đ',
+    image: 'https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/MPL63?wid=532&hei=582&fmt=png-alpha',
+    badge: 'Mới',
+    colors: ['#2e3642', '#344e71', '#e56d29']
+  },
   {
     id: 'magsafe-battery',
     title: 'Pin Dự Phòng MagSafe cho iPhone Air',
@@ -153,14 +172,44 @@ const chargeAndGo = [
   }
 ];
 
+const audioEssentials = [
+    {
+        id: 'airpods-4',
+        title: 'AirPods 4',
+        price: '3.499.000đ',
+        image: 'https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/airpods-4-select-202409?wid=532&hei=582&fmt=png-alpha',
+        badge: 'Mới'
+    },
+    {
+        id: 'airpods-max-blue',
+        title: 'AirPods Max - Xanh Dương',
+        price: '13.999.000đ',
+        image: 'https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/airpods-max-select-202409-blue?wid=532&hei=582&fmt=png-alpha',
+        badge: 'Mới'
+    },
+    {
+        id: 'homepod-midnight',
+        title: 'HomePod - Đêm Xanh',
+        price: '7.999.000đ',
+        image: 'https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/homepod-select-midnight-202210?wid=532&hei=582&fmt=png-alpha',
+    },
+    {
+        id: 'beats-studio-pro',
+        title: 'Tai Nghe Beats Studio Pro - Nâu Đất',
+        price: '7.999.000đ',
+        image: 'https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/MQTQ3?wid=532&hei=582&fmt=png-alpha',
+        badge: 'Mới'
+    }
+];
+
 // --- Components ---
 
 const BrowseItem = ({ name, image }: { name: string, image: string }) => (
-    <div className="flex flex-col items-center gap-3 group cursor-pointer min-w-[100px] snap-center">
-        <div className="w-[100px] h-[100px] md:w-[120px] md:h-[120px]">
-            <img src={image} alt={name} className="w-full h-full object-contain mix-blend-multiply" />
+    <div className="flex flex-col items-center gap-4 group cursor-pointer w-full">
+        <div className="w-[120px] h-[120px] rounded-full overflow-hidden bg-white shadow-sm border border-gray-100 flex items-center justify-center transition-transform group-hover:scale-105">
+            <img src={image} alt={name} className="w-[80%] h-[80%] object-contain mix-blend-multiply" />
         </div>
-        <span className="text-[13px] md:text-[14px] text-[#1d1d1f] font-medium text-center hover:underline hover:text-[#0066cc]">{name}</span>
+        <span className="text-[14px] text-[#1d1d1f] font-medium text-center group-hover:underline group-hover:text-[#0066cc]">{name}</span>
     </div>
 );
 
@@ -201,10 +250,82 @@ const SectionHeader = ({ title }: { title: string }) => (
     </h2>
 );
 
+const ProductSection = ({ title, items, linkText }: { title: string, items: any[], linkText?: string }) => {
+    const scrollRef = useRef<HTMLDivElement>(null);
+    const [canScrollLeft, setCanScrollLeft] = useState(false);
+    const [canScrollRight, setCanScrollRight] = useState(true);
+
+    const checkScroll = () => {
+        if (scrollRef.current) {
+            const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+            setCanScrollLeft(scrollLeft > 0);
+            setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
+        }
+    };
+
+    useEffect(() => {
+        checkScroll();
+        window.addEventListener('resize', checkScroll);
+        return () => window.removeEventListener('resize', checkScroll);
+    }, [items]);
+
+    const scroll = (direction: 'left' | 'right') => {
+        if (scrollRef.current) {
+            const scrollAmount = direction === 'left' ? -400 : 400;
+            scrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            setTimeout(checkScroll, 300);
+        }
+    };
+
+    return (
+        <section className="mb-20 relative group">
+            <SectionHeader title={title} />
+            <div className="relative">
+                {canScrollLeft && (
+                    <button 
+                        onClick={() => scroll('left')}
+                        className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-[#d2d2d7]/80 hover:bg-[#d2d2d7] rounded-full flex items-center justify-center text-black/60 shadow-lg backdrop-blur-sm transition-all md:opacity-0 md:group-hover:opacity-100 ml-4 disabled:opacity-0"
+                    >
+                        <span className="w-5 h-5"><ChevronLeft /></span>
+                    </button>
+                )}
+                
+                <div 
+                    ref={scrollRef}
+                    onScroll={checkScroll}
+                    className="flex gap-5 overflow-x-auto no-scrollbar px-6 md:px-12 pb-12 snap-x scroll-smooth"
+                >
+                    {items.map((item) => (
+                        <StoreItemCard key={item.id} item={item} />
+                    ))}
+                </div>
+
+                {canScrollRight && (
+                    <button 
+                        onClick={() => scroll('right')}
+                        className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-[#d2d2d7]/80 hover:bg-[#d2d2d7] rounded-full flex items-center justify-center text-black/60 shadow-lg backdrop-blur-sm transition-all md:opacity-0 md:group-hover:opacity-100 mr-4"
+                    >
+                        <span className="w-5 h-5"><ChevronRight /></span>
+                    </button>
+                )}
+            </div>
+            {linkText && (
+                <div className="text-center -mt-4">
+                     <a href="#" className="button rounded-full px-5 py-2 bg-[#e8e8ed] text-[#1d1d1f] hover:bg-[#d2d2d7] font-medium transition-colors text-[14px]">{linkText}</a>
+                </div>
+            )}
+        </section>
+    );
+};
+
 const AccessoriesPage: React.FC = () => {
+  const [activeBrowseTab, setActiveBrowseTab] = useState<'product' | 'category'>('product');
+
   return (
     <div className="bg-[#f5f5f7] min-h-screen">
-       {/* Store Local Nav Placeholder (Simplified) */}
+       <ChapterNav items={accessoriesChapters} />
+
+       {/* Store Local Nav Placeholder */}
        <div className="bg-white/80 backdrop-blur-md border-b border-gray-200 sticky top-[44px] z-30 hidden md:block">
            <div className="max-w-[1024px] mx-auto px-4 h-[52px] flex items-center justify-between">
                 <h1 className="text-[21px] font-semibold text-[#1d1d1f]">Phụ Kiện</h1>
@@ -247,64 +368,78 @@ const AccessoriesPage: React.FC = () => {
                  </div>
             </div>
 
-            {/* Browse by Product */}
+            {/* Combined Browse Tabs */}
             <section className="mb-20">
-                <SectionHeader title="Duyệt theo Sản Phẩm" />
-                <div className="flex gap-8 overflow-x-auto no-scrollbar px-6 md:px-12 pb-8 snap-x">
-                    {browseByProduct.map((item, idx) => (
-                        <BrowseItem key={idx} {...item} />
-                    ))}
+                <div className="flex justify-center gap-8 mb-10 border-b border-gray-200 max-w-[400px] mx-auto">
+                    <button 
+                        onClick={() => setActiveBrowseTab('product')}
+                        className={`pb-2 text-[17px] font-medium transition-colors border-b-2 ${activeBrowseTab === 'product' ? 'border-black text-[#1d1d1f]' : 'border-transparent text-gray-500 hover:text-[#1d1d1f]'}`}
+                    >
+                        Duyệt theo Sản Phẩm
+                    </button>
+                    <button 
+                        onClick={() => setActiveBrowseTab('category')}
+                        className={`pb-2 text-[17px] font-medium transition-colors border-b-2 ${activeBrowseTab === 'category' ? 'border-black text-[#1d1d1f]' : 'border-transparent text-gray-500 hover:text-[#1d1d1f]'}`}
+                    >
+                        Duyệt theo Danh Mục
+                    </button>
+                </div>
+
+                <div className="min-h-[200px]">
+                    {activeBrowseTab === 'product' && (
+                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-4 gap-y-10 px-6 md:px-12 pb-8 justify-items-center">
+                            {browseByProduct.map((item, idx) => (
+                                <BrowseItem key={idx} {...item} />
+                            ))}
+                        </div>
+                    )}
+                    {activeBrowseTab === 'category' && (
+                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-4 gap-y-10 px-6 md:px-12 pb-8 justify-items-center">
+                            {browseByCategory.map((item, idx) => (
+                                <BrowseItem key={idx} {...item} />
+                            ))}
+                        </div>
+                    )}
                 </div>
             </section>
 
-            {/* Browse by Category */}
-            <section className="mb-20">
-                <SectionHeader title="Duyệt theo Danh Mục" />
-                <div className="flex gap-8 overflow-x-auto no-scrollbar px-6 md:px-12 pb-8 snap-x">
-                    {browseByCategory.map((item, idx) => (
-                        <BrowseItem key={idx} {...item} />
-                    ))}
-                </div>
-            </section>
+            {/* Product Sections with Slider */}
+            
+            <ProductSection 
+                title="Lựa Chọn Cho Dịp Lễ" 
+                items={holidayPicks} 
+                linkText="Mua sắm tất cả Lựa chọn cho dịp lễ"
+            />
 
-            {/* Holiday Picks */}
-            <section className="mb-20">
-                <SectionHeader title="Lựa chọn cho dịp lễ" />
-                <div className="flex gap-5 overflow-x-auto no-scrollbar px-6 md:px-12 pb-12 snap-x">
-                    {holidayPicks.map((item) => (
-                        <StoreItemCard key={item.id} item={item} />
-                    ))}
-                </div>
-                <div className="text-center">
-                     <a href="#" className="button rounded-full px-5 py-2 bg-[#e8e8ed] text-[#1d1d1f] hover:bg-[#d2d2d7] font-medium transition-colors text-[14px]">Mua sắm tất cả Lựa chọn cho dịp lễ</a>
-                </div>
-            </section>
+            <ProductSection 
+                title="Phụ kiện iPhone nổi bật" 
+                items={iphoneAccessories} 
+                linkText="Mua sắm tất cả Phụ kiện iPhone"
+            />
 
-             {/* Travel Essentials */}
-             <section className="mb-20">
-                <SectionHeader title="Vật dụng du lịch thiết yếu" />
-                <div className="flex gap-5 overflow-x-auto no-scrollbar px-6 md:px-12 pb-12 snap-x">
-                    {travelEssentials.map((item) => (
-                        <StoreItemCard key={item.id} item={item} />
-                    ))}
-                </div>
-                <div className="text-center">
-                     <a href="#" className="button rounded-full px-5 py-2 bg-[#e8e8ed] text-[#1d1d1f] hover:bg-[#d2d2d7] font-medium transition-colors text-[14px]">Mua sắm Vật dụng du lịch thiết yếu</a>
-                </div>
-            </section>
+            <ProductSection 
+                title="Dây Đeo Apple Watch" 
+                items={watchBands} 
+                linkText="Mua sắm tất cả Dây Đeo"
+            />
 
-             {/* Charge & Go */}
-             <section className="mb-20">
-                <SectionHeader title="Sạc & Đi" />
-                <div className="flex gap-5 overflow-x-auto no-scrollbar px-6 md:px-12 pb-12 snap-x">
-                    {chargeAndGo.map((item) => (
-                        <StoreItemCard key={item.id} item={item} />
-                    ))}
-                </div>
-                <div className="text-center">
-                     <a href="#" className="button rounded-full px-5 py-2 bg-[#e8e8ed] text-[#1d1d1f] hover:bg-[#d2d2d7] font-medium transition-colors text-[14px]">Mua sắm Sạc & Đi</a>
-                </div>
-            </section>
+            <ProductSection 
+                title="Phụ Kiện Thiết Yếu Cho Âm Thanh" 
+                items={audioEssentials} 
+                linkText="Mua sắm tất cả thiết bị âm thanh"
+            />
+
+            <ProductSection 
+                title="Phụ Kiện iPad Nổi Bật" 
+                items={[...holidayPicks.slice(2, 6), ...iphoneAccessories]} // Reuse data for demo
+                linkText="Mua sắm tất cả Phụ kiện iPad"
+            />
+
+            <ProductSection 
+                title="Các Phụ Kiện Mac Nổi Bật" 
+                items={[...watchBands, ...audioEssentials]} // Reuse data for demo
+                linkText="Mua sắm tất cả Phụ kiện Mac"
+            />
 
        </div>
     </div>

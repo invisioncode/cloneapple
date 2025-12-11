@@ -1,7 +1,7 @@
 import React from 'react';
 import ChapterNav from '../components/ChapterNav';
 import { ChevronRight } from '../components/Icons';
-import { ProductCard, FeatureCard } from '../components/Cards';
+import { ProductCard, FeatureCard, InfoCard } from '../components/Cards';
 
 const watchChapters = [
   { name: 'Apple Watch Series 11', icon: 'https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/store-card-13-watch-nav-202509_GEO_VN?wid=200&hei=130&fmt=png-alpha', url: '#', new: true },
@@ -65,41 +65,35 @@ const WatchPage: React.FC = () => {
          </div>
       </section>
 
-      {/* Why Apple Section (Incentive) */}
+      {/* Why Apple Section (Incentive) - Updated to use InfoCard */}
       <section className="bg-[#f5f5f7] py-24 overflow-hidden">
         <div className="max-w-[1440px] mx-auto">
              <h2 className="text-[40px] md:text-[64px] font-semibold text-[#1d1d1f] mb-12 px-4 md:px-12 text-left">Vì sao Apple là nơi tốt nhất <br className="hidden md:block" /> để mua Apple Watch.</h2>
              <div className="flex gap-6 overflow-x-auto no-scrollbar px-4 md:px-12 pb-12 snap-x">
-                <FeatureCard 
-                    label="Tài Chính"
-                    headline="Thanh toán hàng tháng dễ dàng."
-                    subhead="Lãi suất 0%."
-                    image="https://www.apple.com/v/watch/bt/images/overview/incentive/incentive_card__ed4ymox3k9ua_large.jpg"
+                <InfoCard 
+                    icon="https://www.apple.com/assets-www/en_WW/common/icon_card/creditcard_elevated_b70609ee9.svg"
+                    title="Tài Chính"
+                    desc="Thanh toán hàng tháng dễ dàng. Lãi suất 0%."
                 />
-                 <FeatureCard 
-                    label="Apple Trade In"
-                    headline="Tiết kiệm khi đổi thiết bị cũ."
-                    image="https://www.apple.com/v/watch/bt/images/overview/incentive/incentive_trade_in__dj8ydvx9fx4y_large.jpg"
+                <InfoCard 
+                    icon="https://www.apple.com/assets-www/en_WW/common/icon_card/arrow.2.squarepath.devices_elevated_fac99429a.svg"
+                    title="Apple Trade In"
+                    desc="Tiết kiệm khi đổi thiết bị cũ."
                 />
-                 <FeatureCard 
-                    label="Giao Hàng"
-                    headline="Giao hàng nhanh chóng và miễn phí."
-                    image="https://www.apple.com/v/watch/bt/images/overview/incentive/incentive_delivery_and_pickup__ljtapj0ry7ey_large.jpg"
+                <InfoCard 
+                    icon="https://www.apple.com/assets-www/en_WW/common/icon_card/truck.box_elevated_d74c82127.svg"
+                    title="Giao Hàng"
+                    desc="Giao hàng nhanh chóng và miễn phí."
                 />
-                 <FeatureCard 
-                    label="Thiết Lập Cá Nhân"
-                    headline="Tận dụng tối đa Apple Watch của bạn."
-                    image="https://www.apple.com/v/watch/bt/images/overview/incentive/incentive_personal_session__tc2rfkamj3ey_large.jpg"
+                <InfoCard 
+                    icon="https://www.apple.com/assets-www/en_WW/common/icon_card/person.crop.circle_elevated_d758074d2.svg"
+                    title="Thiết Lập Cá Nhân"
+                    desc="Tận dụng tối đa Apple Watch của bạn."
                 />
-                <FeatureCard 
-                    label="Mua Sắm Qua Video"
-                    headline="Mua sắm trực tiếp cùng Chuyên Gia."
-                    image="https://www.apple.com/v/watch/bt/images/overview/incentive/incentive_support__dzrqlvvn1cia_large.jpg"
-                />
-                 <FeatureCard 
-                    label="Ứng Dụng Apple Store"
-                    headline="Trải nghiệm mua sắm được thiết kế cho bạn."
-                    image="https://www.apple.com/v/watch/bt/images/overview/incentive/incentive_store_app__e1rh3xt10p6q_large.jpg"
+                 <InfoCard 
+                    icon="https://www.apple.com/assets-www/en_WW/common/icon_card/video_elevated_767f33d42.svg"
+                    title="Mua Sắm Qua Video"
+                    desc="Mua sắm trực tiếp cùng Chuyên Gia."
                 />
              </div>
         </div>

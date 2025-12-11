@@ -1,5 +1,6 @@
 import React from 'react';
 import LocalNav from '../components/LocalNav';
+import { ChevronRight } from '../components/Icons';
 
 // --- Data extracted from HTML ---
 
@@ -64,9 +65,11 @@ const VisionProPage: React.FC = () => {
         <div className="relative z-10 px-4">
              <h1 className="text-5xl md:text-7xl font-semibold mb-4">Apple Vision Pro</h1>
              <p className="text-xl md:text-2xl font-normal max-w-2xl mx-auto mb-8">New powerful M5 chip and comfortable Dual Knit Band.</p>
-             <div className="flex gap-4 justify-center">
+             <div className="flex gap-4 justify-center items-center">
                  <a href="#" className="bg-white text-black px-5 py-2 rounded-full font-medium hover:bg-gray-100 transition-colors">Buy</a>
-                 <a href="#" className="border border-white text-white px-5 py-2 rounded-full font-medium hover:bg-white hover:text-black transition-colors">Book a demo</a>
+                 <a href="#" className="flex items-center gap-1 border border-white text-white px-5 py-2 rounded-full font-medium hover:bg-white hover:text-black transition-colors">
+                     Book a demo <ChevronRight />
+                 </a>
              </div>
         </div>
         <div className="absolute inset-0 z-0 mt-[10vh]">
