@@ -2,45 +2,115 @@ import React from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { AppleIcon, ChevronRight } from './Icons';
 
+interface FooterLink {
+  name: string;
+  url: string;
+}
+
 interface FooterSection {
   title: string;
-  links: string[];
+  links: FooterLink[];
 }
 
 const footerData: FooterSection[] = [
   {
     title: 'Mua Sắm Và Tìm Hiểu',
-    links: ['Cửa Hàng', 'Mac', 'iPad', 'iPhone', 'Watch', 'AirPods', 'TV & Nhà', 'AirTag', 'Phụ Kiện', 'Thẻ Quà Tặng']
+    links: [
+        { name: 'Cửa Hàng', url: '/store' },
+        { name: 'Mac', url: '/mac' },
+        { name: 'iPad', url: '/ipad' },
+        { name: 'iPhone', url: '/iphone' },
+        { name: 'Watch', url: '/watch' },
+        { name: 'Vision', url: '/apple-vision-pro' },
+        { name: 'AirPods', url: '/airpods' },
+        { name: 'TV & Nhà', url: '/tv-home' },
+        { name: 'AirTag', url: '/shop/accessories/all' },
+        { name: 'Phụ Kiện', url: '/shop/accessories/all' },
+        { name: 'Thẻ Quà Tặng', url: '/store' }
+    ]
   },
   {
     title: 'Ví Apple',
-    links: ['Ví', 'Apple Pay']
+    links: [
+        { name: 'Ví', url: '/wallet' },
+        { name: 'Apple Pay', url: '/apple-pay' }
+    ]
   },
   {
     title: 'Tài Khoản',
-    links: ['Quản Lý Tài Khoản Apple', 'Tài Khoản Apple Store', 'iCloud.com']
+    links: [
+        { name: 'Quản Lý Tài Khoản Apple', url: 'https://appleid.apple.com' },
+        { name: 'Tài Khoản Apple Store', url: '/account' },
+        { name: 'iCloud.com', url: 'https://www.icloud.com' }
+    ]
   },
   {
     title: 'Giải Trí',
-    links: ['Apple One', 'Apple TV', 'Apple Music', 'Apple Arcade', 'Apple Podcasts', 'Apple Books']
+    links: [
+        { name: 'Apple One', url: '/services/apple-one' },
+        { name: 'Apple TV', url: '/services/apple-tv-plus' },
+        { name: 'Apple Music', url: '/services/apple-music' },
+        { name: 'Apple Arcade', url: '/services/apple-arcade' },
+        { name: 'Apple Podcasts', url: '/services/apple-podcasts' },
+        { name: 'Apple Books', url: '/services/apple-books' }
+    ]
   },
   {
     title: 'Apple Store',
-    links: ['Ứng Dụng Apple Store', 'Apple Trade In', 'Tài Chính', 'Tình Trạng Đơn Hàng', 'Hỗ Trợ Mua Hàng']
+    links: [
+        { name: 'Ứng Dụng Apple Store', url: 'https://apps.apple.com' },
+        { name: 'Apple Trade In', url: '/store/trade-in' },
+        { name: 'Tài Chính', url: '/store/financing' },
+        { name: 'Tình Trạng Đơn Hàng', url: '/store/order-status' },
+        { name: 'Hỗ Trợ Mua Hàng', url: '/store/help' }
+    ]
   },
   {
     title: 'Dành Cho Doanh Nghiệp',
-    links: ['Apple Và Doanh Nghiệp', 'Mua Hàng Cho Doanh Nghiệp']
+    links: [
+        { name: 'Apple Và Doanh Nghiệp', url: '/business' },
+        { name: 'Mua Hàng Cho Doanh Nghiệp', url: '/business/shop' }
+    ]
   },
   {
     title: 'Cho Giáo Dục',
-    links: ['Apple Và Giáo Dục', 'Mua Hàng Cho Bậc Đại Học']
+    links: [
+        { name: 'Apple Và Giáo Dục', url: '/education' },
+        { name: 'Mua Hàng Cho Bậc Đại Học', url: '/education/k12' }
+    ]
   },
   {
      title: 'Về Apple',
-     links: ['Newsroom', 'Lãnh Đạo Của Apple', 'Nhà Đầu Tư', 'Đạo Đức & Quy Tắc', 'Sự Kiện', 'Liên Hệ Apple']
+     links: [
+         { name: 'Newsroom', url: '/newsroom' },
+         { name: 'Lãnh Đạo Của Apple', url: '/leadership' },
+         { name: 'Nhà Đầu Tư', url: '/investor' },
+         { name: 'Đạo Đức & Quy Tắc', url: '/ethics' },
+         { name: 'Sự Kiện', url: '/events' },
+         { name: 'Liên Hệ Apple', url: '/contact' }
+     ]
   }
 ];
+
+const healthLinks: FooterSection = {
+    title: 'Cho Chăm Sóc Sức Khỏe',
+    links: [{ name: 'Apple và Chăm Sóc Sức Khỏe', url: '/healthcare' }]
+};
+
+const governmentLinks: FooterSection = {
+    title: 'Cho Chính Phủ',
+    links: [{ name: 'Apple và Chính Phủ', url: '/government' }]
+};
+
+const valuesLinks: FooterSection = {
+    title: 'Giá Trị Cốt Lõi Của Apple',
+    links: [
+        { name: 'Trợ Năng', url: '/accessibility' },
+        { name: 'Môi Trường', url: '/environment' },
+        { name: 'Quyền Riêng Tư', url: '/privacy' },
+        { name: 'Đổi Mới Chuỗi Cung Ứng', url: '/supplier-responsibility' }
+    ]
+};
 
 const routeNameMap: Record<string, string> = {
   '/mac': 'Mac',
@@ -100,7 +170,12 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-[#f5f5f7] text-[#1d1d1f] text-xs pt-8 pb-6 px-4">
       <div className="max-w-[980px] mx-auto">
-
+        
+        {/* Footnotes */}
+        <section aria-label="Footnotes" className="border-b border-[#d2d2d7] pb-4 mb-0 text-[#6e6e73]">
+            <p className="mb-2">1. Apple TV yêu cầu đăng ký thuê bao.</p>
+            <p>Một số tính năng có thể thay đổi. Một số tính năng, ứng dụng và dịch vụ chỉ khả dụng ở một số khu vực hoặc ngôn ngữ.</p>
+        </section>
 
         {/* Breadcrumbs */}
         <Breadcrumbs />
@@ -122,22 +197,15 @@ const Footer: React.FC = () => {
                 <FooterColumn section={footerData[5]} />
                 <FooterColumn section={footerData[6]} />
                 <div className="pt-6">
-                    <h3 className="font-semibold mb-2">Cho Chăm Sóc Sức Khỏe</h3>
-                    <ul><li><a href="#" className="hover:underline text-[#424245]">Apple và Chăm Sóc Sức Khỏe</a></li></ul>
+                    <FooterColumn section={healthLinks} noMargin />
                 </div>
                  <div className="pt-6">
-                    <h3 className="font-semibold mb-2">Cho Chính Phủ</h3>
-                    <ul><li><a href="#" className="hover:underline text-[#424245]">Apple và Chính Phủ</a></li></ul>
+                    <FooterColumn section={governmentLinks} noMargin />
                 </div>
             </div>
              <div className="w-1/5">
                  <div className="pt-0">
-                    <h3 className="font-semibold mb-2">Giá Trị Cốt Lõi Của Apple</h3>
-                    <ul>
-                        {['Trợ Năng', 'Môi Trường', 'Quyền Riêng Tư', 'Đổi Mới Chuỗi Cung Ứng'].map(l => (
-                             <li key={l} className="mb-2"><a href="#" className="hover:underline text-[#424245]">{l}</a></li>
-                        ))}
-                    </ul>
+                    <FooterColumn section={valuesLinks} />
                 </div>
                 <FooterColumn section={footerData[7]} />
             </div>
@@ -145,7 +213,7 @@ const Footer: React.FC = () => {
 
         {/* Mobile Accordion (Simplified as stacked for this demo) */}
         <nav aria-label="Apple Directory" className="md:hidden pt-4">
-             {footerData.map((section) => (
+             {[...footerData, healthLinks, governmentLinks, valuesLinks].map((section) => (
                  <div key={section.title} className="border-b border-[#d2d2d7] py-3">
                      <h3 className="font-semibold text-[#1d1d1f]">{section.title}</h3>
                  </div>
@@ -154,21 +222,21 @@ const Footer: React.FC = () => {
 
         <section aria-label="Legal" className="pt-8 text-[#6e6e73]">
             <div className="mb-2">
-                Xem thêm cách để mua hàng: <a href="#" className="text-[#0066cc] hover:underline">Tìm cửa hàng bán lẻ</a> gần bạn. Hoặc gọi <a href="#" className="text-[#0066cc] hover:underline">1800 1192</a>.
+                Xem thêm cách để mua hàng: <Link to="/store/locator" className="text-[#0066cc] hover:underline" title="Tìm cửa hàng bán lẻ">Tìm cửa hàng bán lẻ</Link> gần bạn. Hoặc gọi <a href="tel:18001192" className="text-[#0066cc] hover:underline" title="Call 1800 1192">1800 1192</a>.
             </div>
             <div className="border-t border-[#d2d2d7] pt-4 mt-4 flex flex-col md:flex-row justify-between items-start md:items-center">
                 <div className="mb-2 md:mb-0">
                     Bản quyền © 2025 Apple Inc. Bảo lưu mọi quyền.
                 </div>
                 <div className="flex flex-wrap gap-x-4">
-                    <a href="#" className="hover:underline text-[#424245]">Chính Sách Quyền Riêng Tư</a>
-                    <a href="#" className="hover:underline text-[#424245]">Điều Khoản Sử Dụng</a>
-                    <a href="#" className="hover:underline text-[#424245]">Bán Hàng Và Hoàn Tiền</a>
-                    <a href="#" className="hover:underline text-[#424245]">Pháp Lý</a>
-                    <a href="#" className="hover:underline text-[#424245]">Bản Đồ Trang Web</a>
+                    <Link to="/privacy" className="hover:underline text-[#424245]" title="Chính Sách Quyền Riêng Tư">Chính Sách Quyền Riêng Tư</Link>
+                    <Link to="/legal" className="hover:underline text-[#424245]" title="Điều Khoản Sử Dụng">Điều Khoản Sử Dụng</Link>
+                    <Link to="/shop/sales-policies" className="hover:underline text-[#424245]" title="Bán Hàng Và Hoàn Tiền">Bán Hàng Và Hoàn Tiền</Link>
+                    <Link to="/legal" className="hover:underline text-[#424245]" title="Pháp Lý">Pháp Lý</Link>
+                    <Link to="/sitemap" className="hover:underline text-[#424245]" title="Bản Đồ Trang Web">Bản Đồ Trang Web</Link>
                 </div>
                 <div className="mt-2 md:mt-0">
-                    <Link to="/choose-country-region" className="hover:underline text-[#424245]">Việt Nam</Link>
+                    <Link to="/choose-country-region" className="hover:underline text-[#424245]" title="Choose your country or region">Việt Nam</Link>
                 </div>
             </div>
         </section>
@@ -177,15 +245,36 @@ const Footer: React.FC = () => {
   );
 };
 
-const FooterColumn: React.FC<{ section: FooterSection }> = ({ section }) => (
-    <div className="mb-6">
+const FooterColumn: React.FC<{ section: FooterSection, noMargin?: boolean }> = ({ section, noMargin }) => (
+    <div className={noMargin ? 'mb-0' : 'mb-6'}>
         <h3 className="font-semibold mb-2 text-[#1d1d1f]">{section.title}</h3>
         <ul>
-            {section.links.map((link) => (
-                <li key={link} className="mb-2">
-                    <a href="#" className="hover:underline text-[#424245]">{link}</a>
-                </li>
-            ))}
+            {section.links.map((link) => {
+                const isExternal = link.url.startsWith('http');
+                return (
+                    <li key={link.name} className="mb-2">
+                        {isExternal ? (
+                            <a 
+                                href={link.url} 
+                                className="hover:underline text-[#424245]"
+                                target="_blank"
+                                rel="noreferrer"
+                                title={`Go to ${link.name} (External Link)`}
+                            >
+                                {link.name}
+                            </a>
+                        ) : (
+                            <Link 
+                                to={link.url} 
+                                className="hover:underline text-[#424245]"
+                                title={`Go to ${link.name}`}
+                            >
+                                {link.name}
+                            </Link>
+                        )}
+                    </li>
+                );
+            })}
         </ul>
     </div>
 );

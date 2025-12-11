@@ -2,10 +2,12 @@ import React from 'react';
 import HeroSection from '../components/HeroSection';
 import PromoGrid from '../components/PromoGrid';
 import TVPlusCarousel from '../components/TVPlusCarousel';
+import Ribbon from '../components/Ribbon';
 
 const HomePage: React.FC = () => {
   return (
     <>
+      <Ribbon />
       {/* Holiday 2025 Hero */}
       <HeroSection 
           id="holiday"

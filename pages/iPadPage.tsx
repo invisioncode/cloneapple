@@ -18,7 +18,7 @@ const ipadChapters = [
 
 const IPadPage: React.FC = () => {
   return (
-    <div className="bg-white">
+    <div className="bg-white pt-[44px]">
       <ChapterNav items={ipadChapters} />
       
       {/* Education Ribbon */}
@@ -180,48 +180,18 @@ const IPadPage: React.FC = () => {
                     <div>
                         <h3 className="text-[28px] font-semibold mb-2">Apple Pencil</h3>
                         <p className="text-[17px] mb-6">Lên ý tưởng. Viết xuống.</p>
-                        <a href="#" className="text-[#0066cc] hover:underline mb-8">Tìm hiểu thêm</a>
+                        <a href="#" className="text-[#0066cc] hover:underline mb-8">Tìm hiểu thêm về Apple Pencil</a>
                     </div>
-                    <img src="https://www.apple.com/assets-www/vi_VN/ipad/banner_card_2up/xlarge/pencil_447a469e5_2x.png" className="w-full h-auto mt-auto" alt="" />
+                    <img src="https://www.apple.com/v/ipad/home/ck/images/overview/essentials/apple_pencil__ek4237c541mu_large.jpg" className="w-full h-auto mt-auto" alt="" />
                  </div>
                  <div className="flex-1 bg-white rounded-[24px] overflow-hidden p-8 h-[500px] flex flex-col items-center text-center justify-between">
                     <div>
-                        <h3 className="text-[28px] font-semibold mb-2">Bàn Phím Cho iPad</h3>
-                        <p className="text-[17px] mb-6">Gõ hết ra. Cầm cả theo.</p>
-                        <a href="#" className="text-[#0066cc] hover:underline mb-8">Tìm hiểu thêm</a>
+                        <h3 className="text-[28px] font-semibold mb-2">Bàn Phím cho iPad</h3>
+                        <p className="text-[17px] mb-6">Bàn phím. Và hơn thế nữa.</p>
+                        <a href="#" className="text-[#0066cc] hover:underline mb-8">Mua sắm Bàn Phím</a>
                     </div>
-                    <img src="https://www.apple.com/assets-www/vi_VN/ipad/banner_card_2up/xlarge/keyboard_3902383b0_2x.png" className="w-full h-auto mt-auto" alt="" />
+                    <img src="https://www.apple.com/v/ipad/home/ck/images/overview/essentials/magic_keyboard__f5zba93x4e2q_large.jpg" className="w-full h-auto mt-auto" alt="" />
                  </div>
-             </div>
-          </div>
-      </section>
-      
-      {/* Ecosystem Accordion (Simplified as List) */}
-      <section className="py-24 px-4 bg-white">
-          <div className="max-w-[1024px] mx-auto px-4 md:px-8">
-             <h2 className="text-[40px] md:text-[64px] font-semibold text-[#1d1d1f] mb-12">Nửa kia hoàn hảo.</h2>
-             <div className="space-y-6">
-                <div className="border-b border-gray-200 pb-6">
-                    <h3 className="text-[24px] font-semibold mb-4">iPad và iPhone</h3>
-                    <div className="flex flex-col md:flex-row gap-6 items-center">
-                        <p className="md:w-1/2 text-[17px] text-[#1d1d1f]">iPad là thiết bị hoàn hảo để đưa những nội dung bạn quay chụp trên iPhone và biến chúng trở thành hiện thực trên một không gian sáng tạo. Bạn có thể quay video và chụp ảnh trên iPhone sau đó sử dụng màn hình lớn của iPad để chỉnh sửa, thêm hiệu ứng hình động và hơn thế nữa. Bạn cũng có thể tiếp tục ngay tại điểm bạn dừng lại với Handoff.</p>
-                        <img src="https://www.apple.com/assets-www/vi_VN/ipad/01_image_accordion/xlarge/ipad_iphone_bac90ab60_2x.jpg" className="md:w-1/2 rounded-xl" alt="" />
-                    </div>
-                </div>
-                 <div className="border-b border-gray-200 pb-6">
-                    <h3 className="text-[24px] font-semibold mb-4">iPad và Mac</h3>
-                    <div className="flex flex-col md:flex-row gap-6 items-center">
-                        <p className="md:w-1/2 text-[17px] text-[#1d1d1f]">iPad và Mac được thiết kế để phối hợp cùng nhau tạo nên một nền tảng sáng tạo cực đỉnh. Phác thảo trên iPad và bản vẽ xuất hiện ngay trên Mac của bạn với Sidecar. Sau đó dùng iPad của bạn để vẽ hoặc chỉnh sửa bằng Apple Pencil hoặc sử dụng như màn hình thứ hai. Mở rộng quy trình làm việc của bạn đến những địa điểm mới và khi bạn quay lại bàn làm việc, Điều Khiển Chung cho phép bạn sử dụng chuột hoặc bàn di một cách liền mạch trên cả hai thiết bị.</p>
-                        <img src="https://www.apple.com/assets-www/vi_VN/ipad/01_image_accordion/xlarge/ipad_mac_ae30cb976_2x.jpg" className="md:w-1/2 rounded-xl" alt="" />
-                    </div>
-                </div>
-                 <div className="pb-6">
-                    <h3 className="text-[24px] font-semibold mb-4">iPad và Apple Watch</h3>
-                    <div className="flex flex-col md:flex-row gap-6 items-center">
-                        <p className="md:w-1/2 text-[17px] text-[#1d1d1f]">iPad vô cùng phù hợp để xem dữ liệu Sức Khỏe phong phú do Apple Watch theo dõi và xem lại xu hướng và điểm nổi bật trong ứng dụng Sức Khỏe trên màn hình lớn. Bạn cũng có thể mời những người thân yêu chia sẻ thông tin sức khỏe của họ với bạn một cách an toàn để giúp bạn an tâm và giữ kết nối với mọi người.</p>
-                        <img src="https://www.apple.com/assets-www/vi_VN/ipad/01_image_accordion/xlarge/ipad_watch_68d81ebba_2x.jpg" className="md:w-1/2 rounded-xl" alt="" />
-                    </div>
-                </div>
              </div>
           </div>
       </section>

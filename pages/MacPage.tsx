@@ -21,7 +21,7 @@ const MacPage: React.FC = () => {
     const [activeTab, setActiveTab] = useState('all');
 
   return (
-    <div className="bg-white">
+    <div className="bg-white pt-[44px]">
       <ChapterNav items={macChapters} />
       
       {/* Education Ribbon */}
