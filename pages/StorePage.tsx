@@ -1,4 +1,5 @@
 import React from 'react';
+import Carousel from '../components/Carousel';
 
 // --- Data extracted from HTML ---
 
@@ -368,11 +369,11 @@ const StorePage: React.FC = () => {
             <section className="pb-16 overflow-hidden">
                 <div className="max-w-[1440px] mx-auto">
                     <ShelfHeader title="Những sản phẩm mới nhất." subtitle="Quà này ai cũng mê." />
-                    <div className="flex gap-5 overflow-x-auto no-scrollbar px-6 md:px-12 pb-8 snap-x">
+                    <Carousel className="gap-5 px-6 md:px-12 pb-8">
                         {latestProducts.map((item, idx) => (
                             <StoreCard key={idx} item={{...item, size: 'large'}} />
                         ))}
-                    </div>
+                    </Carousel>
                 </div>
             </section>
 
@@ -380,11 +381,11 @@ const StorePage: React.FC = () => {
             <section className="pb-16 overflow-hidden">
                 <div className="max-w-[1440px] mx-auto">
                     <ShelfHeader title="Cá nhân hóa." subtitle="Món quà có một không hai." />
-                    <div className="flex gap-5 overflow-x-auto no-scrollbar px-6 md:px-12 pb-8 snap-x">
+                    <Carousel className="gap-5 px-6 md:px-12 pb-8">
                         {personalization.map((item, idx) => (
                             <StoreCard key={idx} item={item} />
                         ))}
-                    </div>
+                    </Carousel>
                 </div>
             </section>
 
@@ -392,11 +393,11 @@ const StorePage: React.FC = () => {
             <section className="pb-16 overflow-hidden">
                 <div className="max-w-[1440px] mx-auto">
                     <ShelfHeader title="Lựa chọn cho dịp lễ." subtitle="Được thiết kế cho trải nghiệm thú vị." />
-                    <div className="flex gap-5 overflow-x-auto no-scrollbar px-6 md:px-12 pb-8 snap-x">
+                    <Carousel className="gap-5 px-6 md:px-12 pb-8">
                         {holiday.map((item, idx) => (
                             <StoreCard key={idx} item={item} />
                         ))}
-                    </div>
+                    </Carousel>
                 </div>
             </section>
              
@@ -404,11 +405,11 @@ const StorePage: React.FC = () => {
             <section className="pb-16 overflow-hidden">
                 <div className="max-w-[1440px] mx-auto">
                     <ShelfHeader title="Tìm cảm hứng." subtitle="Thêm nhiều cách gây bất ngờ." />
-                    <div className="flex gap-5 overflow-x-auto no-scrollbar px-6 md:px-12 pb-8 snap-x">
+                    <Carousel className="gap-5 px-6 md:px-12 pb-8">
                         {services.map((item, idx) => (
                             <StoreCard key={idx} item={item} />
                         ))}
-                    </div>
+                    </Carousel>
                 </div>
             </section>
 
@@ -416,11 +417,11 @@ const StorePage: React.FC = () => {
             <section className="pb-16 overflow-hidden">
                 <div className="max-w-[1440px] mx-auto">
                     <ShelfHeader title="Chỉ có tại Apple." subtitle="Sẵn sàng cho dịp lễ." />
-                    <div className="flex gap-5 overflow-x-auto no-scrollbar px-6 md:px-12 pb-8 snap-x">
+                    <Carousel className="gap-5 px-6 md:px-12 pb-8">
                         {unique.map((item, idx) => (
                             <StoreCard key={idx} item={item} />
                         ))}
-                    </div>
+                    </Carousel>
                 </div>
             </section>
             
@@ -428,11 +429,11 @@ const StorePage: React.FC = () => {
             <section className="pb-16 overflow-hidden">
                 <div className="max-w-[1440px] mx-auto">
                     <ShelfHeader title="Trợ giá và ưu đãi." subtitle="Khuyến mại độc quyền và nhiều ưu đãi hấp dẫn khác." />
-                    <div className="flex gap-5 overflow-x-auto no-scrollbar px-6 md:px-12 pb-8 snap-x">
+                    <Carousel className="gap-5 px-6 md:px-12 pb-8">
                         {deals.map((item, idx) => (
                             <StoreCard key={idx} item={item} />
                         ))}
-                    </div>
+                    </Carousel>
                 </div>
             </section>
 

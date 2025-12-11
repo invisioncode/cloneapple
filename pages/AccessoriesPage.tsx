@@ -1,6 +1,7 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { ChevronRight, ChevronLeft } from '../components/Icons';
+import React, { useState } from 'react';
+import { ChevronRight } from '../components/Icons';
 import ChapterNav from '../components/ChapterNav';
+import Carousel from '../components/Carousel';
 
 // --- Data ---
 
@@ -251,66 +252,16 @@ const SectionHeader = ({ title }: { title: string }) => (
 );
 
 const ProductSection = ({ title, items, linkText }: { title: string, items: any[], linkText?: string }) => {
-    const scrollRef = useRef<HTMLDivElement>(null);
-    const [canScrollLeft, setCanScrollLeft] = useState(false);
-    const [canScrollRight, setCanScrollRight] = useState(true);
-
-    const checkScroll = () => {
-        if (scrollRef.current) {
-            const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
-            setCanScrollLeft(scrollLeft > 0);
-            setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
-        }
-    };
-
-    useEffect(() => {
-        checkScroll();
-        window.addEventListener('resize', checkScroll);
-        return () => window.removeEventListener('resize', checkScroll);
-    }, [items]);
-
-    const scroll = (direction: 'left' | 'right') => {
-        if (scrollRef.current) {
-            const scrollAmount = direction === 'left' ? -400 : 400;
-            scrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-            setTimeout(checkScroll, 300);
-        }
-    };
-
     return (
-        <section className="mb-20 relative group">
+        <section className="mb-20">
             <SectionHeader title={title} />
-            <div className="relative">
-                {canScrollLeft && (
-                    <button 
-                        onClick={() => scroll('left')}
-                        className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-[#d2d2d7]/80 hover:bg-[#d2d2d7] rounded-full flex items-center justify-center text-black/60 shadow-lg backdrop-blur-sm transition-all md:opacity-0 md:group-hover:opacity-100 ml-4 disabled:opacity-0"
-                    >
-                        <span className="w-5 h-5"><ChevronLeft /></span>
-                    </button>
-                )}
-                
-                <div 
-                    ref={scrollRef}
-                    onScroll={checkScroll}
-                    className="flex gap-5 overflow-x-auto no-scrollbar px-6 md:px-12 pb-12 snap-x scroll-smooth"
-                >
-                    {items.map((item) => (
-                        <StoreItemCard key={item.id} item={item} />
-                    ))}
-                </div>
-
-                {canScrollRight && (
-                    <button 
-                        onClick={() => scroll('right')}
-                        className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-[#d2d2d7]/80 hover:bg-[#d2d2d7] rounded-full flex items-center justify-center text-black/60 shadow-lg backdrop-blur-sm transition-all md:opacity-0 md:group-hover:opacity-100 mr-4"
-                    >
-                        <span className="w-5 h-5"><ChevronRight /></span>
-                    </button>
-                )}
-            </div>
+            <Carousel className="gap-5 px-6 md:px-12 pb-12">
+                {items.map((item) => (
+                    <StoreItemCard key={item.id} item={item} />
+                ))}
+            </Carousel>
             {linkText && (
-                <div className="text-center -mt-4">
+                <div className="text-center -mt-4 relative z-10">
                      <a href="#" className="button rounded-full px-5 py-2 bg-[#e8e8ed] text-[#1d1d1f] hover:bg-[#d2d2d7] font-medium transition-colors text-[14px]">{linkText}</a>
                 </div>
             )}
