@@ -62,7 +62,9 @@ const Breadcrumbs = () => {
   const location = useLocation();
   const currentPath = location.pathname;
   
-  // Find the matching name, default to nothing if on home page or unknown
+  if (currentPath === '/') return null;
+  
+  // Find the matching name
   let pageName = routeNameMap[currentPath];
   
   // Simple check for sub-routes if exact match fails
@@ -71,18 +73,9 @@ const Breadcrumbs = () => {
       if (key) pageName = routeNameMap[key];
   }
 
-  if (currentPath === '/') return (
-      <div className="border-b border-[#d2d2d7] py-4 mb-5 flex items-center gap-2 text-[#f5f5f7]">
-           {/* Placeholder to keep layout consistent if needed, or just hidden */}
-           <Link to="/" className="text-[#1d1d1f] hover:text-black">
-              <AppleLogo />
-           </Link>
-      </div>
-  );
-
   return (
-    <div className="border-b border-[#d2d2d7] py-4 mb-5 flex items-center gap-2 text-[12px] text-[#424245]">
-      <Link to="/" className="text-[#1d1d1f] hover:text-black flex items-center -mt-1">
+    <div className="py-4 mb-2 flex items-center gap-2 text-[12px] text-[#424245] overflow-hidden">
+      <Link to="/" className="text-[#1d1d1f] hover:text-black -mt-0.5">
         <AppleLogo />
       </Link>
       {pageName && (
@@ -173,7 +166,7 @@ const Footer: React.FC = () => {
                     <a href="#" className="hover:underline text-[#424245]">Bản Đồ Trang Web</a>
                 </div>
                 <div className="mt-2 md:mt-0">
-                    <a href="/choose-country-region" className="hover:underline text-[#424245]">Việt Nam</a>
+                    <Link to="/choose-country-region" className="hover:underline text-[#424245]">Việt Nam</Link>
                 </div>
             </div>
         </div>
