@@ -74,17 +74,25 @@ const Breadcrumbs = () => {
   }
 
   return (
-    <div className="py-4 mb-2 flex items-center gap-2 text-[12px] text-[#424245] overflow-hidden">
-      <Link to="/" className="text-[#1d1d1f] hover:text-black -mt-0.5">
-        <AppleLogo />
-      </Link>
-      {pageName && (
-        <>
-            <span className="text-[#86868b] w-3 h-3 flex items-center"><ChevronRight /></span>
-            <span>{pageName}</span>
-        </>
-      )}
-    </div>
+    <nav aria-label="Breadcrumbs" className="py-4 mb-2 overflow-hidden">
+      <ol className="flex items-center gap-2 text-[12px] text-[#424245]">
+        <li>
+            <Link to="/" className="text-[#1d1d1f] hover:text-black -mt-0.5 block" aria-label="Apple">
+                <AppleLogo />
+            </Link>
+        </li>
+        {pageName && (
+          <>
+            <li aria-hidden="true" className="text-[#86868b] w-3 h-3 flex items-center">
+                <ChevronRight />
+            </li>
+            <li>
+                <span aria-current="page">{pageName}</span>
+            </li>
+          </>
+        )}
+      </ol>
+    </nav>
   );
 };
 
@@ -95,16 +103,16 @@ const Footer: React.FC = () => {
       <div className="max-w-[980px] mx-auto">
         
         {/* Footnotes */}
-        <div className="border-b border-[#d2d2d7] pb-4 mb-0 text-[#6e6e73]">
+        <section aria-label="Footnotes" className="border-b border-[#d2d2d7] pb-4 mb-0 text-[#6e6e73]">
             <p className="mb-2">1. Apple TV yêu cầu đăng ký thuê bao.</p>
             <p>Một số tính năng có thể thay đổi. Một số tính năng, ứng dụng và dịch vụ chỉ khả dụng ở một số khu vực hoặc ngôn ngữ.</p>
-        </div>
+        </section>
 
         {/* Breadcrumbs */}
         <Breadcrumbs />
 
         {/* Directory Columns */}
-        <div className="hidden md:flex flex-wrap justify-between pt-0">
+        <nav aria-label="Apple Directory" className="hidden md:flex flex-wrap justify-between pt-0">
             <div className="w-1/5 pr-4">
                 <FooterColumn section={footerData[0]} />
                 <FooterColumn section={footerData[1]} />
@@ -139,18 +147,18 @@ const Footer: React.FC = () => {
                 </div>
                 <FooterColumn section={footerData[7]} />
             </div>
-        </div>
+        </nav>
 
         {/* Mobile Accordion (Simplified as stacked for this demo) */}
-        <div className="md:hidden">
+        <nav aria-label="Apple Directory" className="md:hidden">
              {footerData.map((section) => (
                  <div key={section.title} className="border-b border-[#d2d2d7] py-3">
                      <h3 className="font-semibold text-[#1d1d1f]">{section.title}</h3>
                  </div>
              ))}
-        </div>
+        </nav>
 
-        <div className="pt-8 text-[#6e6e73]">
+        <section aria-label="Legal" className="pt-8 text-[#6e6e73]">
             <div className="mb-2">
                 Xem thêm cách để mua hàng: <a href="#" className="text-[#0066cc] hover:underline">Tìm cửa hàng bán lẻ</a> gần bạn. Hoặc gọi <a href="#" className="text-[#0066cc] hover:underline">1800 1192</a>.
             </div>
@@ -169,7 +177,7 @@ const Footer: React.FC = () => {
                     <Link to="/choose-country-region" className="hover:underline text-[#424245]">Việt Nam</Link>
                 </div>
             </div>
-        </div>
+        </section>
       </div>
     </footer>
   );
