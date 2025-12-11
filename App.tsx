@@ -6,7 +6,7 @@ import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import MacPage from './pages/MacPage';
 import StorePage from './pages/StorePage';
-import IPadPage from './pages/iPadPage';
+import IPadPage from './pages/IPadPage';
 import IPhonePage from './pages/IPhonePage';
 import WatchPage from './pages/WatchPage';
 import VisionProPage from './pages/VisionProPage';
