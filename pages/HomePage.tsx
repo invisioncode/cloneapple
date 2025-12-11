@@ -1,19 +1,24 @@
+
 import React from 'react';
 import HeroSection from '../components/HeroSection';
 import PromoGrid from '../components/PromoGrid';
 import TVPlusCarousel from '../components/TVPlusCarousel';
 import Ribbon from '../components/Ribbon';
+import { useAppLanguage, getPath } from '../utils/i18n';
 
 const HomePage: React.FC = () => {
+  const { lang, t } = useAppLanguage();
+  const loc = (path: string) => getPath(path, lang);
+
   return (
     <>
       <Ribbon />
       {/* Holiday 2025 Hero */}
       <HeroSection 
           id="holiday"
-          title="Trao những điều đặc biệt."
-          subtitle="Tìm thấy điều mong đợi suốt cả năm."
-          ctaLinks={[{ text: 'Mua sắm quà tặng', url: '#', type: 'primary' }]}
+          title={t.hero.holiday_title}
+          subtitle={t.hero.holiday_subtitle}
+          ctaLinks={[{ text: t.hero.cta_shop_gift, url: loc('/store'), type: 'primary' }]}
           image="https://www.apple.com/v/home/ci/images/heroes/holiday-2025/hero_holiday_2025_startframe__d9p5369r33mu_large.jpg"
           video="https://www.apple.com/105/media/us/home/2025/4c46fd14-1e53-4074-954d-140ec02a3c7d/anim/hero/large.mp4"
           top={false}
@@ -23,11 +28,11 @@ const HomePage: React.FC = () => {
       {/* iPhone Family Hero */}
       <HeroSection 
           id="iphone"
-          title="iPhone"
-          subtitle="Xin chào thế hệ iPhone mới nhất."
+          title={t.hero.iphone_title}
+          subtitle={t.hero.iphone_subtitle}
           ctaLinks={[
-              { text: 'Tìm hiểu thêm', url: '#', type: 'primary' },
-              { text: 'Mua sắm iPhone', url: '#', type: 'secondary' }
+              { text: t.hero.cta_learn, url: loc('/iphone'), type: 'primary' },
+              { text: t.hero.cta_buy, url: loc('/store/buy-iphone'), type: 'secondary' }
           ]}
           image="https://www.apple.com/v/home/cj/images/heroes/iphone-family/hero_iphone_family__fuz5j2v5xx6y_large.jpg"
           top={true}
@@ -37,10 +42,10 @@ const HomePage: React.FC = () => {
       <HeroSection 
           id="macbook"
           title="MacBook Pro 14”"
-          subtitle="Siêu mạnh mẽ với M5."
+          subtitle={t.hero.macbook_subtitle}
           ctaLinks={[
-              { text: 'Tìm hiểu thêm', url: '#', type: 'primary' },
-              { text: 'Mua', url: '#', type: 'secondary' }
+              { text: t.hero.cta_learn, url: loc('/mac'), type: 'primary' },
+              { text: t.hero.cta_buy, url: loc('/store/buy-mac'), type: 'secondary' }
           ]}
           image="https://www.apple.com/v/home/ci/images/heroes/macbook-pro-m5/hero_macbook_pro_m5_announce__i8r7suk8moqe_large.jpg"
           dark={true}
@@ -52,56 +57,33 @@ const HomePage: React.FC = () => {
           promos={[
               {
                   id: 'airpods',
-                  title: 'AirPods Pro 3',
-                  subtitle: 'Chủ Động Khử Tiếng Ồn tai bạn chưa từng nghe.',
+                  title: t.promos.airpods_title,
+                  subtitle: t.promos.airpods_subtitle,
                   ctaLinks: [
-                      { text: 'Tìm hiểu thêm', url: '#', type: 'primary' },
-                      { text: 'Mua', url: '#', type: 'secondary' }
+                      { text: t.hero.cta_learn, url: loc('/airpods'), type: 'primary' },
+                      { text: t.hero.cta_buy, url: loc('/store/buy-airpods'), type: 'secondary' }
                   ],
                   image: 'https://www.apple.com/v/home/ci/images/promos/airpods-pro-3/promo_airpodspro_3__f6xmza7bglei_large.jpg',
                   dark: false
               },
               {
                   id: 'ipad-pro',
-                  title: 'iPad Pro',
-                  subtitle: 'Hiệu năng AI tiên tiến và năng lực thay đổi cuộc chơi.',
+                  title: t.promos.ipad_title,
+                  subtitle: t.promos.ipad_subtitle,
                   ctaLinks: [
-                      { text: 'Tìm hiểu thêm', url: '#', type: 'primary' },
-                      { text: 'Mua', url: '#', type: 'secondary' }
+                      { text: t.hero.cta_learn, url: loc('/ipad'), type: 'primary' },
+                      { text: t.hero.cta_buy, url: loc('/store/buy-ipad'), type: 'secondary' }
                   ],
                   image: 'https://www.apple.com/v/home/ci/images/promos/ipad-pro/promo_ipad_pro__c529dk533k4m_large.jpg',
                   dark: true
               },
               {
-                  id: 'ipad-air',
-                  title: 'iPad Air',
-                  subtitle: 'Nay siêu mạnh mẽ với chip M3.',
-                  ctaLinks: [
-                      { text: 'Tìm hiểu thêm', url: '#', type: 'primary' },
-                      { text: 'Mua', url: '#', type: 'secondary' }
-                  ],
-                  image: 'https://www.apple.com/v/home/ci/images/promos/ipad-air/promo_ipad_air__bfbxzvw65c02_large.jpg',
-                  dark: false
-              },
-                {
-                  id: 'ipad',
-                  title: 'iPad',
-                  subtitle: 'Nay với tốc độ của chip A16.',
-                  subtitle2: 'Tăng gấp đôi dung lượng lưu trữ khởi điểm.',
-                  ctaLinks: [
-                      { text: 'Tìm hiểu thêm', url: '#', type: 'primary' },
-                      { text: 'Mua', url: '#', type: 'secondary' }
-                  ],
-                  image: 'https://www.apple.com/vn/home/images/promos/ipad/promo_ipad__fioegapg12qi_large.jpg',
-                  dark: false
-              },
-                {
                   id: 'watch-s11',
-                  title: 'Apple Watch Series 11',
-                  subtitle: 'Siêu công cụ chăm sóc sức khỏe của bạn.',
+                  title: t.promos.watch_s11_title,
+                  subtitle: t.promos.watch_s11_subtitle,
                   ctaLinks: [
-                      { text: 'Tìm hiểu thêm', url: '#', type: 'primary' },
-                      { text: 'Mua', url: '#', type: 'secondary' }
+                      { text: t.hero.cta_learn, url: loc('/watch'), type: 'primary' },
+                      { text: t.hero.cta_buy, url: loc('/store/buy-watch'), type: 'secondary' }
                   ],
                   image: 'https://www.apple.com/vn/home/images/promos/apple-watch-series-11/promo_apple_watch_series_11__b63hxviqvonm_large.jpg',
                   dark: false,
@@ -109,11 +91,11 @@ const HomePage: React.FC = () => {
               },
                 {
                   id: 'watch-ultra',
-                  title: 'Apple Watch Ultra 3',
-                  subtitle: 'Tay chơi cự phách.',
+                  title: t.promos.watch_ultra_title,
+                  subtitle: t.promos.watch_ultra_subtitle,
                   ctaLinks: [
-                      { text: 'Tìm hiểu thêm', url: '#', type: 'primary' },
-                      { text: 'Mua', url: '#', type: 'secondary' }
+                      { text: t.hero.cta_learn, url: loc('/watch'), type: 'primary' },
+                      { text: t.hero.cta_buy, url: loc('/store/buy-watch'), type: 'secondary' }
                   ],
                   image: 'https://www.apple.com/vn/home/images/promos/apple-watch-ultra-3/promo_apple_watch_ultra3__bwvslhbxx99e_large.jpg',
                   dark: true,

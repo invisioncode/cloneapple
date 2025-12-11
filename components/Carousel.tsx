@@ -33,9 +33,11 @@ const Carousel: React.FC<CarouselProps> = ({ children, className = "" }) => {
       let scrollAmount = container.clientWidth * 0.8; // Default scroll amount
 
       if (firstItem) {
-         const itemWidth = firstItem.offsetWidth;
+         // Use getBoundingClientRect for sub-pixel precision
+         const itemWidth = firstItem.getBoundingClientRect().width;
          const style = window.getComputedStyle(container);
-         const gap = parseFloat(style.columnGap) || parseFloat(style.gap) || 0;
+         const gap = parseFloat(style.gap) || parseFloat(style.columnGap) || 0;
+         
          // Scroll by one item + gap for precise alignment
          scrollAmount = itemWidth + gap;
       }
