@@ -32,7 +32,7 @@ export const ProductCard = ({
         {colors && (
             <div className="flex gap-1.5 my-1">
                 {colors.map((c, i) => (
-                    <div key={i} className="w-3 h-3 rounded-full shadow-sm border border-black/10" style={{backgroundColor: c}}></div>
+                    <div key={i} className="w-3 h-3 rounded-full shadow-sm border border-black/20" style={{backgroundColor: c}}></div>
                 ))}
             </div>
         )}
@@ -72,7 +72,7 @@ export const FeatureCard = ({
         <div className="absolute inset-0 z-0">
              <img src={image} alt={label} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" />
         </div>
-        <div className="relative z-10 p-6 md:p-8 flex flex-col h-full justify-start items-start text-left bg-gradient-to-b from-black/20 to-transparent">
+        <div className={`relative z-10 p-6 md:p-8 flex flex-col h-full justify-start items-start text-left ${dark ? 'bg-gradient-to-b from-black/60 via-black/20 to-transparent' : ''}`}>
              <span className="text-[12px] font-semibold mb-2 opacity-90 uppercase tracking-wider">{label}</span>
              <h3 className={`font-semibold leading-tight ${large ? 'text-[28px] md:text-[32px]' : 'text-[24px]'}`}>
                 <span dangerouslySetInnerHTML={{ __html: headline }} />

@@ -38,10 +38,10 @@ const MacPage: React.FC = () => {
             <div className="flex flex-col md:items-end gap-2">
                 <span className="text-[24px] md:text-[28px] font-semibold text-[#1d1d1f]">Khám phá các sản phẩm.</span>
                 <div className="flex gap-4 text-[14px] md:text-[17px]">
-                    <button onClick={() => setActiveTab('all')} className={`pb-1 border-b-2 ${activeTab === 'all' ? 'border-black text-black' : 'border-transparent text-gray-500'}`}>Tất cả</button>
-                    <button onClick={() => setActiveTab('laptop')} className={`pb-1 border-b-2 ${activeTab === 'laptop' ? 'border-black text-black' : 'border-transparent text-gray-500'}`}>Máy Tính Xách Tay</button>
-                    <button onClick={() => setActiveTab('desktop')} className={`pb-1 border-b-2 ${activeTab === 'desktop' ? 'border-black text-black' : 'border-transparent text-gray-500'}`}>Máy Tính Để Bàn</button>
-                    <button onClick={() => setActiveTab('display')} className={`pb-1 border-b-2 ${activeTab === 'display' ? 'border-black text-black' : 'border-transparent text-gray-500'}`}>Màn Hình</button>
+                    <button onClick={() => setActiveTab('all')} className={`pb-1 border-b-2 ${activeTab === 'all' ? 'border-black text-[#1d1d1f]' : 'border-transparent text-[#6e6e73] hover:text-[#1d1d1f]'}`}>Tất cả</button>
+                    <button onClick={() => setActiveTab('laptop')} className={`pb-1 border-b-2 ${activeTab === 'laptop' ? 'border-black text-[#1d1d1f]' : 'border-transparent text-[#6e6e73] hover:text-[#1d1d1f]'}`}>Máy Tính Xách Tay</button>
+                    <button onClick={() => setActiveTab('desktop')} className={`pb-1 border-b-2 ${activeTab === 'desktop' ? 'border-black text-[#1d1d1f]' : 'border-transparent text-[#6e6e73] hover:text-[#1d1d1f]'}`}>Máy Tính Để Bàn</button>
+                    <button onClick={() => setActiveTab('display')} className={`pb-1 border-b-2 ${activeTab === 'display' ? 'border-black text-[#1d1d1f]' : 'border-transparent text-[#6e6e73] hover:text-[#1d1d1f]'}`}>Màn Hình</button>
                 </div>
             </div>
          </div>
@@ -111,7 +111,7 @@ const MacPage: React.FC = () => {
                 alt="Great Ideas" 
                 className="w-full h-full object-cover"
             />
-             <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6 bg-black/10">
+             <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6 bg-black/40">
                  <h2 className="text-[48px] md:text-[80px] font-semibold text-white mb-2 leading-tight">Bạn nghĩ được là <br /> Mac làm được.</h2>
                  <p className="text-[20px] md:text-[24px] text-white font-medium mb-6">Những ý tưởng lớn khởi đầu từ đây.</p>
                  <div className="flex gap-4">
