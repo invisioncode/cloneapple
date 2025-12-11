@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { NavItem } from '../types';
 import { AppleLogo, SearchIcon, BagIcon, MenuIcon } from './Icons';
@@ -7,9 +7,11 @@ import { useAppLanguage, getPath } from '../utils/i18n';
 
 const GlobalNavbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [hoveredNav, setHoveredNav] = useState<string | null>(null);
   const { lang, t } = useAppLanguage();
+  const searchInputRef = useRef<HTMLInputElement>(null);
 
   // Helper to localize paths defined in static config
   const loc = (path: string) => getPath(path, lang);
@@ -71,16 +73,52 @@ const GlobalNavbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (isSearchOpen) {
+        setIsMenuOpen(false);
+        setHoveredNav(null);
+        // Delay focus slightly to ensure element is visible
+        setTimeout(() => {
+            searchInputRef.current?.focus();
+        }, 50);
+    }
+  }, [isSearchOpen]);
+
+  const handleSearchClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setIsSearchOpen(true);
+  };
+
   return (
     <nav 
       onMouseLeave={() => setHoveredNav(null)}
       className={`fixed top-0 left-0 right-0 z-50 h-[44px] transition-all duration-300 ${
-        scrolled || isMenuOpen || hoveredNav ? 'bg-[#161617]' : 'bg-[#161617]'
+        scrolled || isMenuOpen || hoveredNav || isSearchOpen ? 'bg-[#161617]' : 'bg-[#161617]'
       }`}
     >
       <div className="max-w-[1024px] mx-auto px-4 h-full relative z-50 bg-[#161617]">
+        
+        {/* Search Bar Overlay */}
+        <div className={`absolute inset-0 z-50 flex items-center justify-center bg-[#161617] transition-all duration-300 ${isSearchOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}>
+             <div className="w-full max-w-[600px] flex items-center px-4">
+                <SearchIcon className="w-[15px] h-[44px] text-[#86868b] mr-3 opacity-80" />
+                <input 
+                    ref={searchInputRef}
+                    type="text" 
+                    placeholder={t.aria.search} 
+                    className="flex-1 bg-transparent border-none outline-none text-white text-[17px] placeholder-[#86868b]"
+                    onKeyDown={(e) => e.key === 'Escape' && setIsSearchOpen(false)}
+                />
+                <button onClick={() => setIsSearchOpen(false)} className="ml-2 p-2 text-[#86868b] hover:text-white transition-colors">
+                     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                    </svg>
+                </button>
+             </div>
+        </div>
+
         {/* Desktop Nav */}
-        <div className="hidden md:flex justify-between items-center h-full text-[#f5f5f7] text-xs font-light tracking-wide">
+        <div className={`hidden md:flex justify-between items-center h-full text-[#f5f5f7] text-xs font-light tracking-wide transition-opacity duration-200 ${isSearchOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
           <Link to={loc('/')} className="opacity-80 hover:opacity-100 transition-opacity p-2" aria-label={t.aria.apple}>
             <AppleLogo />
           </Link>
@@ -99,7 +137,7 @@ const GlobalNavbar: React.FC = () => {
                 </Link>
             </div>
           ))}
-          <a href="#" className="opacity-80 hover:opacity-100 transition-opacity p-2" aria-label={t.aria.search}>
+          <a href="#" className="opacity-80 hover:opacity-100 transition-opacity p-2" aria-label={t.aria.search} onClick={handleSearchClick}>
             <SearchIcon />
           </a>
           <a href="#" className="opacity-80 hover:opacity-100 transition-opacity p-2" aria-label={t.aria.bag}>
@@ -108,12 +146,12 @@ const GlobalNavbar: React.FC = () => {
         </div>
 
         {/* Mobile Nav */}
-        <div className="md:hidden flex justify-between items-center h-full text-[#f5f5f7]">
+        <div className={`md:hidden flex justify-between items-center h-full text-[#f5f5f7] transition-opacity duration-200 ${isSearchOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
            <Link to={loc('/')} className="opacity-80 hover:opacity-100 transition-opacity px-2" aria-label={t.aria.apple}>
             <AppleLogo />
           </Link>
           <div className="flex items-center">
-             <a href="#" className="opacity-80 hover:opacity-100 transition-opacity px-4" aria-label={t.aria.search}>
+             <a href="#" className="opacity-80 hover:opacity-100 transition-opacity px-4" aria-label={t.aria.search} onClick={handleSearchClick}>
               <SearchIcon />
             </a>
             <a href="#" className="opacity-80 hover:opacity-100 transition-opacity px-4" aria-label={t.aria.bag}>

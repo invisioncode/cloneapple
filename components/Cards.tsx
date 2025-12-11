@@ -1,4 +1,3 @@
-import { ChevronRight } from './Icons';
 
 export const ProductCard = ({ 
   title, 
