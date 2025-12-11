@@ -5,13 +5,13 @@ import ChapterNav from '../components/ChapterNav';
 // --- Data ---
 
 const accessoriesChapters = [
-  { name: 'Tất Cả', icon: 'https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/icon-category-all-accessories?wid=112&hei=112&fmt=png-alpha', url: '#' },
-  { name: 'Mac', icon: 'https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/icon-product-mac?wid=112&hei=112&fmt=png-alpha', url: '#' },
-  { name: 'iPad', icon: 'https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/icon-product-ipad?wid=112&hei=112&fmt=png-alpha', url: '#' },
-  { name: 'iPhone', icon: 'https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/icon-product-iphone?wid=112&hei=112&fmt=png-alpha', url: '#' },
-  { name: 'Watch', icon: 'https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/icon-product-watch?wid=112&hei=112&fmt=png-alpha', url: '#' },
-  { name: 'AirPods', icon: 'https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/icon-product-airpods?wid=112&hei=112&fmt=png-alpha', url: '#' },
-  { name: 'TV & Home', icon: 'https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/icon-product-tv?wid=112&hei=112&fmt=png-alpha', url: '#' },
+  { name: 'Tất Cả', icon: 'https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/icon-category-all-accessories?wid=112&hei=112&fmt=png-alpha', url: '/shop/accessories/all' },
+  { name: 'Mac', icon: 'https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/icon-product-mac?wid=112&hei=112&fmt=png-alpha', url: '/shop/mac/accessories' },
+  { name: 'iPad', icon: 'https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/icon-product-ipad?wid=112&hei=112&fmt=png-alpha', url: '/shop/ipad/accessories' },
+  { name: 'iPhone', icon: 'https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/icon-product-iphone?wid=112&hei=112&fmt=png-alpha', url: '/shop/iphone/accessories' },
+  { name: 'Watch', icon: 'https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/icon-product-watch?wid=112&hei=112&fmt=png-alpha', url: '/shop/watch/accessories' },
+  { name: 'AirPods', icon: 'https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/icon-product-airpods?wid=112&hei=112&fmt=png-alpha', url: '/shop/airpods/accessories' },
+  { name: 'TV & Home', icon: 'https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/icon-product-tv?wid=112&hei=112&fmt=png-alpha', url: '/shop/tv-home/accessories' },
 ];
 
 const browseByProduct = [
@@ -344,7 +344,7 @@ const AccessoriesPage: React.FC = () => {
                        Kết hợp iPhone của bạn với ốp lưng, ví hoặc Dây Đeo Chéo với các chất liệu và màu sắc mới mẻ.
                    </p>
                    <div className="flex flex-col gap-2">
-                       <a href="#" className="text-[#0066cc] hover:underline text-[17px]">Mua MagSafe <ChevronRight /></a>
+                       <a href="/shop/iphone/accessories/magsafe" className="text-[#0066cc] hover:underline text-[17px]">Mua MagSafe <ChevronRight /></a>
                        <a href="#" className="text-[#0066cc] hover:underline text-[17px]">Mua Dây Đeo Chéo <ChevronRight /></a>
                    </div>
                </div>

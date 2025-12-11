@@ -3,13 +3,13 @@ import ChapterNav from '../components/ChapterNav';
 import { ChevronRight } from '../components/Icons';
 
 const tvHomeChapters = [
-  { name: 'Apple TV 4K', icon: 'https://www.apple.com/v/tv-home/p/images/chapternav/apple_tv_4k_light__c51717t43yqa_large.svg', url: '#' },
-  { name: 'Apple TV app', icon: 'https://www.apple.com/v/tv-home/p/images/chapternav/apple_tv_app_light__etrj133dhy6a_large.svg', url: '#' },
-  { name: 'Apple TV+', icon: 'https://www.apple.com/v/tv-home/p/images/chapternav/apple_tv_plus_light__b2gn1h9g67eu_large.svg', url: '#' },
-  { name: 'HomePod', icon: 'https://www.apple.com/v/tv-home/p/images/chapternav/homepod_light__c2n2i1d545ci_large.svg', url: '#' },
-  { name: 'HomePod mini', icon: 'https://www.apple.com/v/tv-home/p/images/chapternav/homepod_mini_light__c9zlg7o7b0ya_large.svg', url: '#' },
-  { name: 'Home app', icon: 'https://www.apple.com/v/tv-home/p/images/chapternav/home_app_light__fpx0a09b8h6y_large.svg', url: '#' },
-  { name: 'Phụ Kiện', icon: 'https://www.apple.com/v/tv-home/p/images/chapternav/accessories_light__fpx0a09b8h6y_large.svg', url: '#' },
+  { name: 'Apple TV 4K', icon: 'https://www.apple.com/v/tv-home/p/images/chapternav/apple_tv_4k_light__c51717t43yqa_large.svg', url: '/tv-home/apple-tv-4k' },
+  { name: 'Apple TV app', icon: 'https://www.apple.com/v/tv-home/p/images/chapternav/apple_tv_app_light__etrj133dhy6a_large.svg', url: '/tv-home/apple-tv-app' },
+  { name: 'Apple TV+', icon: 'https://www.apple.com/v/tv-home/p/images/chapternav/apple_tv_plus_light__b2gn1h9g67eu_large.svg', url: '/apple-tv-plus' },
+  { name: 'HomePod', icon: 'https://www.apple.com/v/tv-home/p/images/chapternav/homepod_light__c2n2i1d545ci_large.svg', url: '/tv-home/homepod' },
+  { name: 'HomePod mini', icon: 'https://www.apple.com/v/tv-home/p/images/chapternav/homepod_mini_light__c9zlg7o7b0ya_large.svg', url: '/tv-home/homepod-mini' },
+  { name: 'Home app', icon: 'https://www.apple.com/v/tv-home/p/images/chapternav/home_app_light__fpx0a09b8h6y_large.svg', url: '/tv-home/home-app' },
+  { name: 'Phụ Kiện', icon: 'https://www.apple.com/v/tv-home/p/images/chapternav/accessories_light__fpx0a09b8h6y_large.svg', url: '/shop/tv-home/accessories' },
 ];
 
 const Tile = ({ 
@@ -131,7 +131,7 @@ const TVHomePage: React.FC = () => {
                 image="https://www.apple.com/v/tv-home/p/images/overview/homepod__eam53jjm772a_large.jpg"
                 dark={true}
                 ctaLinks={[
-                    { text: 'Mua', url: '#', type: 'button' },
+                    { text: 'Mua', url: '/store/buy-homepod', type: 'button' },
                     { text: 'Tìm hiểu thêm', url: '#', type: 'link' }
                 ]}
             />
@@ -141,7 +141,7 @@ const TVHomePage: React.FC = () => {
                 price="Từ 2.499.000đ"
                 image="https://www.apple.com/v/tv-home/p/images/overview/room_filling_sound__zagu3551kwyi_large.jpg"
                 ctaLinks={[
-                    { text: 'Mua', url: '#', type: 'button' },
+                    { text: 'Mua', url: '/store/buy-homepod-mini', type: 'button' },
                     { text: 'Tìm hiểu thêm', url: '#', type: 'link' }
                 ]}
             />
@@ -151,7 +151,7 @@ const TVHomePage: React.FC = () => {
                 price="Từ 3.499.000đ"
                 image="https://www.apple.com/v/tv-home/p/images/overview/apple_tv_4k__b30wcqp0pdle_large.jpg"
                 ctaLinks={[
-                    { text: 'Mua', url: '#', type: 'button' },
+                    { text: 'Mua', url: '/store/buy-apple-tv-4k', type: 'button' },
                     { text: 'Tìm hiểu thêm', url: '#', type: 'link' }
                 ]}
             />
@@ -216,19 +216,19 @@ const TVHomePage: React.FC = () => {
                     title="Phát trực tiếp các chương trình Apple Originals từng đoạt giải thưởng."
                     logo="https://www.apple.com/v/tv-home/p/images/overview/tv_plus_logo__ftim9r0zkyum_large.png"
                     image="https://www.apple.com/v/tv-home/p/images/overview/apple_experience_hardware__bk2gaiiovh7m_large.png"
-                    link="#"
+                    link="/apple-tv-plus"
                 />
                 <ServiceTile 
                     title="Tất cả âm nhạc. Chất lượng âm thanh cao nhất. Không quảng cáo."
                     logo="https://www.apple.com/v/tv-home/p/images/overview/apple_music_logo__fysswdp9i4yi_large.png"
                     image="https://www.apple.com/v/tv-home/p/images/overview/apple_experience_hardware__bk2gaiiovh7m_large.png" // Reusing image for demo layout match
-                    link="#"
+                    link="/apple-music"
                 />
                 <ServiceTile 
                     title="Bộ sưu tập trò chơi di động hay nhất cho mọi người chơi."
                     logo="https://www.apple.com/v/tv-home/p/images/overview/apple_arcade_logo__fkj0u4ziuguy_large.png"
                     image="https://www.apple.com/v/tv-home/p/images/overview/apple_experience_hardware__bk2gaiiovh7m_large.png"
-                    link="#"
+                    link="/apple-arcade"
                 />
             </div>
         </div>
@@ -241,7 +241,7 @@ const TVHomePage: React.FC = () => {
                 <h2 className="text-[40px] md:text-[64px] font-semibold text-[#1d1d1f] max-w-3xl leading-tight">
                     Phụ kiện. Quanh nhà bạn và trên mọi thiết bị.
                 </h2>
-                <a href="#" className="text-[#0066cc] hover:underline text-[19px] mb-4 flex items-center whitespace-nowrap">
+                <a href="/shop/tv-home/accessories" className="text-[#0066cc] hover:underline text-[19px] mb-4 flex items-center whitespace-nowrap">
                     Mua phụ kiện <ChevronRight />
                 </a>
             </div>

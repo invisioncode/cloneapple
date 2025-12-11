@@ -25,10 +25,10 @@ const navItems: NavItem[] = [
       {
         title: 'Liên Kết Nhanh',
         items: [
-          { name: 'Tìm Cửa Hàng', url: '#' },
-          { name: 'Tình Trạng Đơn Hàng', url: '#' },
-          { name: 'Apple Trade In', url: '#' },
-          { name: 'Tài Chính', url: '#' },
+          { name: 'Tìm Cửa Hàng', url: '/store/locator' },
+          { name: 'Tình Trạng Đơn Hàng', url: '/store/order-status' },
+          { name: 'Apple Trade In', url: '/store/trade-in' },
+          { name: 'Tài Chính', url: '/store/financing' },
         ]
       }
     ]
@@ -41,28 +41,28 @@ const navItems: NavItem[] = [
         title: 'Khám Phá Mac',
         items: [
           { name: 'Khám Phá Tất Cả Mac', url: '/mac' },
-          { name: 'MacBook Air', url: '#' },
-          { name: 'MacBook Pro', url: '#' },
-          { name: 'iMac', url: '#' },
-          { name: 'Mac mini', url: '#' },
-          { name: 'Mac Studio', url: '#' },
-          { name: 'Mac Pro', url: '#' },
-          { name: 'Màn Hình', url: '#' },
+          { name: 'MacBook Air', url: '/mac/macbook-air' },
+          { name: 'MacBook Pro', url: '/mac/macbook-pro' },
+          { name: 'iMac', url: '/mac/imac' },
+          { name: 'Mac mini', url: '/mac/mac-mini' },
+          { name: 'Mac Studio', url: '/mac/mac-studio' },
+          { name: 'Mac Pro', url: '/mac/mac-pro' },
+          { name: 'Màn Hình', url: '/mac/displays' },
         ]
       },
       {
         title: 'Mua Mac',
         items: [
-          { name: 'Mua Mac', url: '#' },
-          { name: 'Phụ Kiện Mac', url: '#' },
+          { name: 'Mua Mac', url: '/store/buy-mac' },
+          { name: 'Phụ Kiện Mac', url: '/mac/accessories' },
         ]
       },
       {
         title: 'Tìm Hiểu Thêm',
         items: [
-          { name: 'Hỗ Trợ Mac', url: '#' },
-          { name: 'macOS', url: '#' },
-          { name: 'Apple Intelligence', url: '#' },
+          { name: 'Hỗ Trợ Mac', url: '/support/mac' },
+          { name: 'macOS', url: '/mac/os' },
+          { name: 'Apple Intelligence', url: '/apple-intelligence' },
         ]
       }
     ]
@@ -75,19 +75,19 @@ const navItems: NavItem[] = [
         title: 'Khám Phá iPad',
         items: [
           { name: 'Khám Phá Tất Cả iPad', url: '/ipad' },
-          { name: 'iPad Pro', url: '#' },
-          { name: 'iPad Air', url: '#' },
-          { name: 'iPad', url: '#' },
-          { name: 'iPad mini', url: '#' },
-          { name: 'Apple Pencil', url: '#' },
-          { name: 'Bàn Phím', url: '#' },
+          { name: 'iPad Pro', url: '/ipad/ipad-pro' },
+          { name: 'iPad Air', url: '/ipad/ipad-air' },
+          { name: 'iPad', url: '/ipad/ipad-10-9' },
+          { name: 'iPad mini', url: '/ipad/ipad-mini' },
+          { name: 'Apple Pencil', url: '/ipad/apple-pencil' },
+          { name: 'Bàn Phím', url: '/ipad/keyboards' },
         ]
       },
       {
         title: 'Mua iPad',
         items: [
-          { name: 'Mua iPad', url: '#' },
-          { name: 'Phụ Kiện iPad', url: '#' },
+          { name: 'Mua iPad', url: '/store/buy-ipad' },
+          { name: 'Phụ Kiện iPad', url: '/ipad/accessories' },
         ]
       }
     ]
@@ -100,17 +100,17 @@ const navItems: NavItem[] = [
         title: 'Khám Phá iPhone',
         items: [
           { name: 'Khám Phá Tất Cả iPhone', url: '/iphone' },
-          { name: 'iPhone 17 Pro', url: '#' },
-          { name: 'iPhone 17', url: '#' },
-          { name: 'iPhone 16', url: '#' },
-          { name: 'iPhone SE', url: '#' },
+          { name: 'iPhone 17 Pro', url: '/iphone/iphone-17-pro' },
+          { name: 'iPhone 17', url: '/iphone/iphone-17' },
+          { name: 'iPhone 16', url: '/iphone/iphone-16' },
+          { name: 'iPhone SE', url: '/iphone/iphone-se' },
         ]
       },
       {
         title: 'Mua iPhone',
         items: [
-          { name: 'Mua iPhone', url: '#' },
-          { name: 'Phụ Kiện iPhone', url: '#' },
+          { name: 'Mua iPhone', url: '/store/buy-iphone' },
+          { name: 'Phụ Kiện iPhone', url: '/iphone/accessories' },
         ]
       }
     ]
@@ -123,19 +123,19 @@ const navItems: NavItem[] = [
         title: 'Khám Phá Watch',
         items: [
           { name: 'Khám Phá Tất Cả Apple Watch', url: '/watch' },
-          { name: 'Apple Watch Series 11', url: '#' },
-          { name: 'Apple Watch Ultra 3', url: '#' },
-          { name: 'Apple Watch SE', url: '#' },
-          { name: 'Nike', url: '#' },
-          { name: 'Hermès', url: '#' },
+          { name: 'Apple Watch Series 11', url: '/watch/apple-watch-series-11' },
+          { name: 'Apple Watch Ultra 3', url: '/watch/apple-watch-ultra-3' },
+          { name: 'Apple Watch SE', url: '/watch/apple-watch-se' },
+          { name: 'Nike', url: '/watch/nike' },
+          { name: 'Hermès', url: '/watch/hermes' },
         ]
       },
       {
         title: 'Mua Watch',
         items: [
-          { name: 'Mua Apple Watch', url: '#' },
-          { name: 'Dây Đeo', url: '#' },
-          { name: 'Phụ Kiện Watch', url: '#' },
+          { name: 'Mua Apple Watch', url: '/store/buy-watch' },
+          { name: 'Dây Đeo', url: '/watch/bands' },
+          { name: 'Phụ Kiện Watch', url: '/watch/accessories' },
         ]
       }
     ]
@@ -153,7 +153,7 @@ const navItems: NavItem[] = [
       {
         title: 'Mua Vision',
         items: [
-          { name: 'Mua Apple Vision Pro', url: '#' },
+          { name: 'Mua Apple Vision Pro', url: '/store/buy-vision-pro' },
         ]
       }
     ]
@@ -166,15 +166,15 @@ const navItems: NavItem[] = [
         title: 'Khám Phá AirPods',
         items: [
           { name: 'Khám Phá Tất Cả AirPods', url: '/airpods' },
-          { name: 'AirPods 4', url: '#' },
-          { name: 'AirPods Pro 2', url: '#' },
-          { name: 'AirPods Max', url: '#' },
+          { name: 'AirPods 4', url: '/airpods/airpods-4' },
+          { name: 'AirPods Pro 2', url: '/airpods/airpods-pro-2' },
+          { name: 'AirPods Max', url: '/airpods/airpods-max' },
         ]
       },
       {
         title: 'Mua AirPods',
         items: [
-          { name: 'Mua AirPods', url: '#' },
+          { name: 'Mua AirPods', url: '/store/buy-airpods' },
         ]
       }
     ]
@@ -187,17 +187,17 @@ const navItems: NavItem[] = [
         title: 'Khám Phá TV & Nhà',
         items: [
           { name: 'Khám Phá TV & Nhà', url: '/tv-home' },
-          { name: 'Apple TV 4K', url: '#' },
-          { name: 'HomePod', url: '#' },
-          { name: 'HomePod mini', url: '#' },
+          { name: 'Apple TV 4K', url: '/tv-home/apple-tv-4k' },
+          { name: 'HomePod', url: '/tv-home/homepod' },
+          { name: 'HomePod mini', url: '/tv-home/homepod-mini' },
         ]
       },
       {
         title: 'Mua TV & Nhà',
         items: [
-          { name: 'Mua Apple TV 4K', url: '#' },
-          { name: 'Mua HomePod', url: '#' },
-          { name: 'Phụ Kiện TV & Nhà', url: '#' },
+          { name: 'Mua Apple TV 4K', url: '/store/buy-apple-tv-4k' },
+          { name: 'Mua HomePod', url: '/store/buy-homepod' },
+          { name: 'Phụ Kiện TV & Nhà', url: '/tv-home/accessories' },
         ]
       }
     ]
@@ -210,12 +210,12 @@ const navItems: NavItem[] = [
         title: 'Khám Phá Dịch Vụ',
         items: [
           { name: 'Khám Phá Dịch Vụ', url: '/services' },
-          { name: 'Apple One', url: '#' },
-          { name: 'Apple TV+', url: '#' },
-          { name: 'Apple Music', url: '#' },
-          { name: 'Apple Arcade', url: '#' },
-          { name: 'Apple Podcasts', url: '#' },
-          { name: 'Apple Books', url: '#' },
+          { name: 'Apple One', url: '/services/apple-one' },
+          { name: 'Apple TV+', url: '/services/apple-tv-plus' },
+          { name: 'Apple Music', url: '/services/apple-music' },
+          { name: 'Apple Arcade', url: '/services/apple-arcade' },
+          { name: 'Apple Podcasts', url: '/services/apple-podcasts' },
+          { name: 'Apple Books', url: '/services/apple-books' },
         ]
       }
     ]
@@ -228,12 +228,12 @@ const navItems: NavItem[] = [
         title: 'Mua Phụ Kiện',
         items: [
           { name: 'Mua Tất Cả Phụ Kiện', url: '/accessories' },
-          { name: 'Mac', url: '#' },
-          { name: 'iPad', url: '#' },
-          { name: 'iPhone', url: '#' },
-          { name: 'Apple Watch', url: '#' },
-          { name: 'AirPods', url: '#' },
-          { name: 'TV & Nhà', url: '#' },
+          { name: 'Mac', url: '/accessories/mac' },
+          { name: 'iPad', url: '/accessories/ipad' },
+          { name: 'iPhone', url: '/accessories/iphone' },
+          { name: 'Apple Watch', url: '/accessories/watch' },
+          { name: 'AirPods', url: '/accessories/airpods' },
+          { name: 'TV & Nhà', url: '/accessories/tv-home' },
         ]
       }
     ]
@@ -245,22 +245,22 @@ const navItems: NavItem[] = [
       {
         title: 'Khám Phá Hỗ Trợ',
         items: [
-          { name: 'Hỗ Trợ iPhone', url: '#' },
-          { name: 'Hỗ Trợ Mac', url: '#' },
-          { name: 'Hỗ Trợ iPad', url: '#' },
-          { name: 'Hỗ Trợ Watch', url: '#' },
-          { name: 'Hỗ Trợ AirPods', url: '#' },
-          { name: 'Hỗ Trợ Music', url: '#' },
-          { name: 'Hỗ Trợ TV', url: '#' },
+          { name: 'Hỗ Trợ iPhone', url: '/support/iphone' },
+          { name: 'Hỗ Trợ Mac', url: '/support/mac' },
+          { name: 'Hỗ Trợ iPad', url: '/support/ipad' },
+          { name: 'Hỗ Trợ Watch', url: '/support/watch' },
+          { name: 'Hỗ Trợ AirPods', url: '/support/airpods' },
+          { name: 'Hỗ Trợ Music', url: '/support/music' },
+          { name: 'Hỗ Trợ TV', url: '/support/tv' },
         ]
       },
       {
         title: 'Trợ Giúp',
         items: [
-          { name: 'Cộng Đồng', url: '#' },
-          { name: 'Kiểm Tra Bảo Hành', url: '#' },
-          { name: 'Sửa Chữa', url: '#' },
-          { name: 'Liên Hệ', url: '#' },
+          { name: 'Cộng Đồng', url: '/support/community' },
+          { name: 'Kiểm Tra Bảo Hành', url: '/support/check-coverage' },
+          { name: 'Sửa Chữa', url: '/support/repair' },
+          { name: 'Liên Hệ', url: '/support/contact' },
         ]
       }
     ]
@@ -307,10 +307,10 @@ const GlobalNavbar: React.FC = () => {
                 </Link>
             </div>
           ))}
-          <a href="#" className="opacity-80 hover:opacity-100 transition-opacity p-2">
+          <a href="/search" className="opacity-80 hover:opacity-100 transition-opacity p-2">
             <SearchIcon />
           </a>
-          <a href="#" className="opacity-80 hover:opacity-100 transition-opacity p-2">
+          <a href="/bag" className="opacity-80 hover:opacity-100 transition-opacity p-2">
             <BagIcon />
           </a>
         </div>
@@ -321,10 +321,10 @@ const GlobalNavbar: React.FC = () => {
             <AppleLogo />
           </Link>
           <div className="flex items-center">
-             <a href="#" className="opacity-80 hover:opacity-100 transition-opacity px-4">
+             <a href="/search" className="opacity-80 hover:opacity-100 transition-opacity px-4">
               <SearchIcon />
             </a>
-            <a href="#" className="opacity-80 hover:opacity-100 transition-opacity px-4">
+            <a href="/bag" className="opacity-80 hover:opacity-100 transition-opacity px-4">
               <BagIcon />
             </a>
             <button 

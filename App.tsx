@@ -6,7 +6,7 @@ import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import MacPage from './pages/MacPage';
 import StorePage from './pages/StorePage';
-import IPadPage from './pages/iPadPage';
+import IPadPage from './pages/IPadPage';
 import IPhonePage from './pages/IPhonePage';
 import WatchPage from './pages/WatchPage';
 import VisionProPage from './pages/VisionProPage';
@@ -26,20 +26,20 @@ const App: React.FC = () => {
       <main>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/mac" element={<MacPage />} />
-          <Route path="/ipad" element={<IPadPage />} />
-          <Route path="/iphone" element={<IPhonePage />} />
-          <Route path="/watch" element={<WatchPage />} />
-          <Route path="/apple-vision-pro" element={<VisionProPage />} />
-          <Route path="/airpods" element={<AirPodsPage />} />
-          <Route path="/tv-home" element={<TVHomePage />} />
-          <Route path="/services" element={<ServicesPage />} />
+          {/* Using /* allows sub-routes (e.g. /mac/macbook-air) to render the main category page for this demo */}
+          <Route path="/mac/*" element={<MacPage />} />
+          <Route path="/ipad/*" element={<IPadPage />} />
+          <Route path="/iphone/*" element={<IPhonePage />} />
+          <Route path="/watch/*" element={<WatchPage />} />
+          <Route path="/apple-vision-pro/*" element={<VisionProPage />} />
+          <Route path="/airpods/*" element={<AirPodsPage />} />
+          <Route path="/tv-home/*" element={<TVHomePage />} />
+          <Route path="/services/*" element={<ServicesPage />} />
           <Route path="/shop/accessories/all" element={<AccessoriesPage />} />
-          <Route path="/accessories" element={<AccessoriesPage />} />
-          <Route path="/support" element={<SupportPage />} />
-          <Route path="/store" element={<StorePage />} />
+          <Route path="/accessories/*" element={<AccessoriesPage />} />
+          <Route path="/support/*" element={<SupportPage />} />
+          <Route path="/store/*" element={<StorePage />} />
           <Route path="/choose-country-region" element={<ChooseCountryPage />} />
-          {/* Placeholder routes for other nav items */}
           <Route path="*" element={<HomePage />} />
         </Routes>
       </main>

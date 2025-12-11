@@ -4,12 +4,12 @@ import { ChevronRight } from '../components/Icons';
 import { FeatureCard, ProductCard } from '../components/Cards';
 
 const airpodsChapters = [
-  { name: 'AirPods 4', icon: 'https://www.apple.com/v/airpods/ab/images/chapternav/airpods_4_light__c51717t43yqa_large.svg', url: '#' },
-  { name: 'AirPods Pro 2', icon: 'https://www.apple.com/v/airpods/ab/images/chapternav/airpods_pro_light__etrj133dhy6a_large.svg', url: '#', new: true },
-  { name: 'AirPods Max', icon: 'https://www.apple.com/v/airpods/ab/images/chapternav/airpods_max_light__b2gn1h9g67eu_large.svg', url: '#' },
-  { name: 'So Sánh', icon: 'https://www.apple.com/v/airpods/ab/images/chapternav/airpods_compare_light__c2n2i1d545ci_large.svg', url: '#' },
-  { name: 'Phụ Kiện', icon: 'https://www.apple.com/v/airpods/ab/images/chapternav/airpods_accessories_light__c9zlg7o7b0ya_large.svg', url: '#' },
-  { name: 'Apple Music', icon: 'https://www.apple.com/v/airpods/ab/images/chapternav/apple_music_light__fpx0a09b8h6y_large.svg', url: '#' },
+  { name: 'AirPods 4', icon: 'https://www.apple.com/v/airpods/ab/images/chapternav/airpods_4_light__c51717t43yqa_large.svg', url: '/airpods/airpods-4' },
+  { name: 'AirPods Pro 2', icon: 'https://www.apple.com/v/airpods/ab/images/chapternav/airpods_pro_light__etrj133dhy6a_large.svg', url: '/airpods/airpods-pro-2', new: true },
+  { name: 'AirPods Max', icon: 'https://www.apple.com/v/airpods/ab/images/chapternav/airpods_max_light__b2gn1h9g67eu_large.svg', url: '/airpods/airpods-max' },
+  { name: 'So Sánh', icon: 'https://www.apple.com/v/airpods/ab/images/chapternav/airpods_compare_light__c2n2i1d545ci_large.svg', url: '/airpods/compare' },
+  { name: 'Phụ Kiện', icon: 'https://www.apple.com/v/airpods/ab/images/chapternav/airpods_accessories_light__c9zlg7o7b0ya_large.svg', url: '/shop/airpods/accessories' },
+  { name: 'Apple Music', icon: 'https://www.apple.com/v/airpods/ab/images/chapternav/apple_music_light__fpx0a09b8h6y_large.svg', url: '/apple-music' },
 ];
 
 const AirPodsHero = ({ 
@@ -71,7 +71,7 @@ const AirPodsPage: React.FC = () => {
       {/* Ribbon */}
       <div className="bg-[#f5f5f7] py-4 text-center px-4">
         <p className="text-[14px] text-[#1d1d1f] max-w-4xl mx-auto">
-          Mua AirPods Pro 2 và nhận 3 tháng sử dụng Apple Music miễn phí. <a href="#" className="text-[#0066cc] hover:underline">Mua ngay <ChevronRight /></a>
+          Mua AirPods Pro 2 và nhận 3 tháng sử dụng Apple Music miễn phí. <a href="/apple-music" className="text-[#0066cc] hover:underline">Mua ngay <ChevronRight /></a>
         </p>
       </div>
 
@@ -85,7 +85,7 @@ const AirPodsPage: React.FC = () => {
             dark={false} // The image has a light background in the source
             ctas={[
                 { text: 'Tìm hiểu thêm', url: '#', type: 'primary' },
-                { text: 'Mua', url: '#', type: 'secondary' }
+                { text: 'Mua', url: '/store/buy-airpods', type: 'secondary' }
             ]}
           />
       </div>
@@ -100,7 +100,7 @@ const AirPodsPage: React.FC = () => {
             dark={true}
             ctas={[
                 { text: 'Tìm hiểu thêm', url: '#', type: 'primary' },
-                { text: 'Mua', url: '#', type: 'secondary' }
+                { text: 'Mua', url: '/store/buy-airpods', type: 'secondary' }
             ]}
           />
       </div>
@@ -115,7 +115,7 @@ const AirPodsPage: React.FC = () => {
             // Using a white background wrapper for the image effectively
             ctas={[
                 { text: 'Tìm hiểu thêm', url: '#', type: 'primary' },
-                { text: 'Mua', url: '#', type: 'secondary' }
+                { text: 'Mua', url: '/store/buy-airpods', type: 'secondary' }
             ]}
           />
       </div>
@@ -139,7 +139,7 @@ const AirPodsPage: React.FC = () => {
                     <h3 className="text-[20px] font-semibold">{device.name}</h3>
                     {device.sub && <p className="text-[12px] text-gray-500">{device.sub}</p>}
                     <p className="text-[14px] mt-2 mb-4">{device.price}</p>
-                    <a href="#" className="bg-[#0071e3] text-white px-4 py-1 rounded-full text-[12px] hover:bg-[#0077ED]">Mua</a>
+                    <a href="/store/buy-airpods" className="bg-[#0071e3] text-white px-4 py-1 rounded-full text-[12px] hover:bg-[#0077ED]">Mua</a>
                 </div>
             ))}
         </div>
@@ -189,7 +189,7 @@ const AirPodsPage: React.FC = () => {
         </div>
         
         <div className="mt-16 text-center">
-             <a href="#" className="text-[#0066cc] hover:underline text-[19px] flex items-center justify-center">So sánh tất cả các mẫu AirPods <ChevronRight /></a>
+             <a href="/airpods/compare" className="text-[#0066cc] hover:underline text-[19px] flex items-center justify-center">So sánh tất cả các mẫu AirPods <ChevronRight /></a>
         </div>
       </section>
 
@@ -236,7 +236,7 @@ const AirPodsPage: React.FC = () => {
              <p className="text-[24px] md:text-[32px] font-semibold mb-6">
                  Nhận 3 tháng sử dụng Apple Music miễn phí với AirPods của bạn.
              </p>
-             <a href="#" className="bg-black text-white px-6 py-3 rounded-full text-[17px] hover:bg-gray-800 transition-colors">Tìm hiểu thêm</a>
+             <a href="/apple-music" className="bg-black text-white px-6 py-3 rounded-full text-[17px] hover:bg-gray-800 transition-colors">Tìm hiểu thêm</a>
          </div>
       </section>
 

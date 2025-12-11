@@ -4,16 +4,16 @@ import { ChevronRight } from '../components/Icons';
 import { ProductCard, FeatureCard, InfoCard } from '../components/Cards';
 
 const watchChapters = [
-  { name: 'Apple Watch Series 11', icon: 'https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/store-card-13-watch-nav-202509_GEO_VN?wid=200&hei=130&fmt=png-alpha', url: '#', new: true },
-  { name: 'Apple Watch SE', icon: 'https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/store-card-13-watch-se-nav-202509?wid=200&hei=130&fmt=png-alpha', url: '#', new: true },
-  { name: 'Apple Watch Ultra', icon: 'https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/store-card-13-watch-ultra-nav-202509?wid=200&hei=130&fmt=png-alpha', url: '#', new: true },
-  { name: 'Nike', icon: 'https://www.apple.com/v/watch/bt/images/overview/chapternav/watch_nav_nike_light__b3234j7q0uqa_large.svg', url: '#' },
-  { name: 'Hermès', icon: 'https://www.apple.com/v/watch/bt/images/overview/chapternav/watch_nav_hermes_light__c20985551502_large.svg', url: '#' },
-  { name: 'So Sánh', icon: 'https://www.apple.com/v/watch/bt/images/overview/chapternav/watch_nav_compare_light__f29055812902_large.svg', url: '#' },
-  { name: 'Dây Đeo', icon: 'https://www.apple.com/v/watch/bt/images/overview/chapternav/watch_nav_bands_light__f29055812902_large.svg', url: '#' },
-  { name: 'Phụ Kiện', icon: 'https://www.apple.com/v/watch/bt/images/overview/chapternav/watch_nav_accessories_light__f29055812902_large.svg', url: '#' },
-  { name: 'Apple Fitness+', icon: 'https://www.apple.com/v/watch/bt/images/overview/chapternav/watch_nav_fitness_light__f29055812902_large.svg', url: '#' },
-  { name: 'watchOS', icon: 'https://www.apple.com/v/watch/bt/images/overview/chapternav/watch_nav_watch_os_light__f29055812902_large.svg', url: '#' },
+  { name: 'Apple Watch Series 11', icon: 'https://www.apple.com/v/watch/bt/images/chapternav/watch_nav_series_11_light__b3234j7q0uqa_large.svg', url: '/watch/apple-watch-series-11', new: true },
+  { name: 'Apple Watch SE', icon: 'https://www.apple.com/v/watch/bt/images/chapternav/watch_nav_se_light__c20985551502_large.svg', url: '/watch/apple-watch-se', new: true },
+  { name: 'Apple Watch Ultra', icon: 'https://www.apple.com/v/watch/bt/images/chapternav/watch_nav_ultra_light__f29055812902_large.svg', url: '/watch/apple-watch-ultra', new: true },
+  { name: 'Nike', icon: 'https://www.apple.com/v/watch/bt/images/chapternav/watch_nav_nike_light__b3234j7q0uqa_large.svg', url: '/watch/nike' },
+  { name: 'Hermès', icon: 'https://www.apple.com/v/watch/bt/images/chapternav/watch_nav_hermes_light__c20985551502_large.svg', url: '/watch/hermes' },
+  { name: 'So Sánh', icon: 'https://www.apple.com/v/watch/bt/images/chapternav/watch_nav_compare_light__f29055812902_large.svg', url: '/watch/compare' },
+  { name: 'Dây Đeo', icon: 'https://www.apple.com/v/watch/bt/images/chapternav/watch_nav_bands_light__f29055812902_large.svg', url: '/watch/bands' },
+  { name: 'Phụ Kiện', icon: 'https://www.apple.com/v/watch/bt/images/chapternav/watch_nav_accessories_light__f29055812902_large.svg', url: '/shop/watch/accessories' },
+  { name: 'Apple Fitness+', icon: 'https://www.apple.com/v/watch/bt/images/chapternav/watch_nav_fitness_light__f29055812902_large.svg', url: '/fitness-plus' },
+  { name: 'watchOS', icon: 'https://www.apple.com/v/watch/bt/images/chapternav/watch_nav_watch_os_light__f29055812902_large.svg', url: '/watchos' },
 ];
 
 const WatchPage: React.FC = () => {
@@ -24,7 +24,7 @@ const WatchPage: React.FC = () => {
       {/* Ribbon */}
       <div className="bg-[#f5f5f7] py-4 text-center px-4">
         <p className="text-[14px] text-[#1d1d1f] max-w-4xl mx-auto">
-          Nhận 3 tháng Apple Fitness+ khi mua bất kỳ Apple Watch nào. <a href="#" className="text-[#0066cc] hover:underline">Mua Apple Watch <ChevronRight /></a>
+          Nhận 3 tháng Apple Fitness+ khi mua bất kỳ Apple Watch nào. <a href="/store/buy-watch" className="text-[#0066cc] hover:underline">Mua Apple Watch <ChevronRight /></a>
         </p>
       </div>
 
@@ -34,7 +34,7 @@ const WatchPage: React.FC = () => {
             <h1 className="text-[64px] md:text-[96px] font-semibold text-[#1d1d1f] leading-none mb-6 md:mb-0">Apple Watch</h1>
          </div>
 
-         {/* Product Grid */}
+         {/* Product Grid - Updated with Series 11, SE 3, Ultra 3 */}
          <div className="overflow-x-auto no-scrollbar pb-16">
              <div className="flex gap-6 min-w-max mx-auto px-4">
                 <ProductCard 
@@ -46,7 +46,7 @@ const WatchPage: React.FC = () => {
                     price="Từ 11.499.000đ"
                 />
                 <ProductCard 
-                    title="Apple Watch SE"
+                    title="Apple Watch SE 3"
                     badge="Mới"
                     desc="Các tính năng sức khỏe thiết yếu với mức giá tuyệt vời."
                     image="https://www.apple.com/v/watch/bt/images/overview/select/product_se__cbhd710p3auq_large.png"
@@ -65,7 +65,7 @@ const WatchPage: React.FC = () => {
          </div>
       </section>
 
-      {/* Why Apple Section (Incentive) - Updated to use InfoCard */}
+      {/* Why Apple Section (Incentive) - Updated with new visuals from HTML */}
       <section className="bg-[#f5f5f7] py-24 overflow-hidden">
         <div className="max-w-[1440px] mx-auto">
              <h2 className="text-[40px] md:text-[64px] font-semibold text-[#1d1d1f] mb-12 px-4 md:px-12 text-left">Vì sao Apple là nơi tốt nhất <br className="hidden md:block" /> để mua Apple Watch.</h2>
@@ -73,33 +73,33 @@ const WatchPage: React.FC = () => {
                 <InfoCard 
                     icon="https://www.apple.com/assets-www/en_WW/common/icon_card/creditcard_elevated_b70609ee9.svg"
                     title="Tài Chính"
-                    desc="Thanh toán hàng tháng dễ dàng. Lãi suất 0%."
+                    desc="Thanh toán hàng tháng thật dễ dàng. Bao gồm lựa chọn lãi suất 0%."
                 />
                 <InfoCard 
                     icon="https://www.apple.com/assets-www/en_WW/common/icon_card/arrow.2.squarepath.devices_elevated_fac99429a.svg"
                     title="Apple Trade In"
-                    desc="Tiết kiệm khi đổi thiết bị cũ."
+                    desc="Tiết kiệm khi mua Apple Watch mới bằng cách đổi thiết bị đủ điều kiện."
                 />
                 <InfoCard 
                     icon="https://www.apple.com/assets-www/en_WW/common/icon_card/truck.box_elevated_d74c82127.svg"
-                    title="Giao Hàng"
-                    desc="Giao hàng nhanh chóng và miễn phí."
+                    title="Giao Hàng & Nhận Hàng"
+                    desc="Chọn giao hàng miễn phí hoặc nhận hàng tại cửa hàng dễ dàng."
                 />
                 <InfoCard 
                     icon="https://www.apple.com/assets-www/en_WW/common/icon_card/person.crop.circle_elevated_d758074d2.svg"
                     title="Thiết Lập Cá Nhân"
-                    desc="Tận dụng tối đa Apple Watch của bạn."
+                    desc="Tham gia phiên trực tuyến 1-1 với Chuyên Gia để thiết lập thiết bị mới."
                 />
                  <InfoCard 
                     icon="https://www.apple.com/assets-www/en_WW/common/icon_card/video_elevated_767f33d42.svg"
                     title="Mua Sắm Qua Video"
-                    desc="Mua sắm trực tiếp cùng Chuyên Gia."
+                    desc="Mua sắm trực tiếp với Chuyên Gia qua video. Chúng tôi sẽ giúp bạn chọn đúng sản phẩm."
                 />
              </div>
         </div>
       </section>
 
-      {/* Get to Know Apple Watch */}
+      {/* Get to Know Apple Watch - Updated Images from Source */}
       <section className="bg-white py-24 overflow-hidden">
         <div className="max-w-[1440px] mx-auto">
              <h2 className="text-[40px] md:text-[64px] font-semibold text-[#1d1d1f] mb-12 px-4 md:px-12 text-left">Tìm hiểu Apple Watch.</h2>
@@ -122,7 +122,6 @@ const WatchPage: React.FC = () => {
                     label="An Toàn"
                     headline="Giữ sự trợ giúp <br/>trong tầm tay."
                     image="https://www.apple.com/v/watch/bt/images/overview/consider/feature_safety__dw301bl8sh4y_large.jpg"
-                    dark
                     large
                 />
                  <FeatureCard 
@@ -153,12 +152,12 @@ const WatchPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Essentials */}
+      {/* Essentials Banner */}
       <section className="py-24 px-4 bg-white">
         <div className="max-w-[1440px] mx-auto">
              <div className="flex flex-col md:flex-row justify-between items-end mb-12 px-4 md:px-8">
                  <h2 className="text-[40px] md:text-[64px] font-semibold text-[#1d1d1f]">Phụ kiện thiết yếu.</h2>
-                 <a href="#" className="text-[#0066cc] hover:underline text-[19px] mb-2 flex items-center">Xem tất cả phụ kiện <ChevronRight /></a>
+                 <a href="/shop/watch/accessories" className="text-[#0066cc] hover:underline text-[19px] mb-2 flex items-center">Xem tất cả phụ kiện <ChevronRight /></a>
              </div>
              
              <div className="px-4 md:px-8">
@@ -173,7 +172,7 @@ const WatchPage: React.FC = () => {
         </div>
       </section>
       
-      {/* Ecosystem */}
+      {/* Ecosystem - Made for each other */}
       <section className="py-24 px-4 bg-[#f5f5f7]">
           <div className="max-w-[1024px] mx-auto px-4 md:px-8">
              <h2 className="text-[40px] md:text-[64px] font-semibold text-[#1d1d1f] mb-12">Sinh ra là để cho nhau.</h2>

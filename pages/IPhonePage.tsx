@@ -4,15 +4,15 @@ import { ChevronRight } from '../components/Icons';
 import { ProductCard, FeatureCard, InfoCard } from '../components/Cards';
 
 const iphoneChapters = [
-  { name: 'iPhone 17 Pro', icon: 'https://www.apple.com/v/iphone/home/ch/images/overview/chapternav/nav_iphone_17pro__d60uog2c064i_large.png', url: '#', new: true },
-  { name: 'iPhone Air', icon: 'https://www.apple.com/v/iphone/home/ch/images/overview/chapternav/nav_iphone_air__bbj6j2c39efm_large.png', url: '#', new: true },
-  { name: 'iPhone 17', icon: 'https://www.apple.com/v/iphone/home/ch/images/overview/chapternav/nav_iphone_17__ffxyxejeezqm_large.png', url: '#', new: true },
-  { name: 'iPhone 16', icon: 'https://www.apple.com/v/iphone/home/ch/images/overview/chapternav/nav_iphone_16__kcscr25z9num_large.png', url: '#' },
-  { name: 'iPhone 16e', icon: 'https://www.apple.com/v/iphone/home/ch/images/overview/chapternav/nav_iphone_16e__3qxl86zrk0yq_large.png', url: '#' },
-  { name: 'Compare', icon: 'https://www.apple.com/v/iphone/home/ch/images/overview/chapternav/nav_compare__fka067e4fgq6_large.png', url: '#' },
-  { name: 'Accessories', icon: 'https://www.apple.com/v/iphone/home/ch/images/overview/chapternav/nav_accessories__e5zgfl9e0vwy_large.png', url: '#' },
-  { name: 'Shop', icon: 'https://www.apple.com/v/iphone/home/ch/images/overview/chapternav/nav_shop__ehl4csfdphg2_large.png', url: '#' },
-  { name: 'iOS', icon: 'https://www.apple.com/v/iphone/home/ch/images/overview/chapternav/nav_ios__efygxkc3oqs2_large.png', url: '#' },
+  { name: 'iPhone 17 Pro', icon: 'https://www.apple.com/v/iphone/home/ch/images/overview/chapternav/nav_iphone_17pro__d60uog2c064i_large.png', url: '/iphone/iphone-17-pro', new: true },
+  { name: 'iPhone Air', icon: 'https://www.apple.com/v/iphone/home/ch/images/overview/chapternav/nav_iphone_air__bbj6j2c39efm_large.png', url: '/iphone/iphone-air', new: true },
+  { name: 'iPhone 17', icon: 'https://www.apple.com/v/iphone/home/ch/images/overview/chapternav/nav_iphone_17__ffxyxejeezqm_large.png', url: '/iphone/iphone-17', new: true },
+  { name: 'iPhone 16', icon: 'https://www.apple.com/v/iphone/home/ch/images/overview/chapternav/nav_iphone_16__kcscr25z9num_large.png', url: '/iphone/iphone-16' },
+  { name: 'iPhone 16e', icon: 'https://www.apple.com/v/iphone/home/ch/images/overview/chapternav/nav_iphone_16e__3qxl86zrk0yq_large.png', url: '/iphone/iphone-16e' },
+  { name: 'Compare', icon: 'https://www.apple.com/v/iphone/home/ch/images/overview/chapternav/nav_compare__fka067e4fgq6_large.png', url: '/iphone/compare' },
+  { name: 'Accessories', icon: 'https://www.apple.com/v/iphone/home/ch/images/overview/chapternav/nav_accessories__e5zgfl9e0vwy_large.png', url: '/shop/iphone/accessories' },
+  { name: 'Shop', icon: 'https://www.apple.com/v/iphone/home/ch/images/overview/chapternav/nav_shop__ehl4csfdphg2_large.png', url: '/store/buy-iphone' },
+  { name: 'iOS', icon: 'https://www.apple.com/v/iphone/home/ch/images/overview/chapternav/nav_ios__efygxkc3oqs2_large.png', url: '/ios' },
 ];
 
 const IPhonePage: React.FC = () => {
@@ -23,7 +23,7 @@ const IPhonePage: React.FC = () => {
       {/* Ribbon */}
       <div className="bg-[#f5f5f7] py-4 text-center px-4">
         <p className="text-[14px] text-[#1d1d1f] max-w-4xl mx-auto">
-          Get credit toward iPhone 17, iPhone Air, or iPhone 17 Pro when you trade in an eligible smartphone. <a href="#" className="text-[#0066cc] hover:underline">Shop iPhone <ChevronRight /></a>
+          Get credit toward iPhone 17, iPhone Air, or iPhone 17 Pro when you trade in an eligible smartphone. <a href="/store/buy-iphone" className="text-[#0066cc] hover:underline">Shop iPhone <ChevronRight /></a>
         </p>
       </div>
 
@@ -33,7 +33,7 @@ const IPhonePage: React.FC = () => {
             <h1 className="text-[64px] md:text-[96px] font-semibold text-[#1d1d1f] leading-none mb-6 md:mb-0">iPhone</h1>
             <div className="flex flex-col md:items-end gap-2">
                 <span className="text-[24px] md:text-[28px] font-semibold text-[#1d1d1f]">Explore the lineup.</span>
-                <a href="#" className="text-[#0066cc] hover:underline text-[17px] flex items-center">Compare all models <ChevronRight /></a>
+                <a href="/iphone/compare" className="text-[#0066cc] hover:underline text-[17px] flex items-center">Compare all models <ChevronRight /></a>
             </div>
          </div>
 
@@ -165,7 +165,7 @@ const IPhonePage: React.FC = () => {
         <div className="max-w-[1440px] mx-auto">
              <div className="flex flex-col md:flex-row justify-between items-end mb-12 px-4 md:px-8">
                  <h2 className="text-[40px] md:text-[64px] font-semibold text-[#1d1d1f]">iPhone essentials.</h2>
-                 <a href="#" className="text-[#0066cc] hover:underline text-[19px] mb-2 flex items-center">All iPhone accessories <ChevronRight /></a>
+                 <a href="/shop/iphone/accessories" className="text-[#0066cc] hover:underline text-[19px] mb-2 flex items-center">All iPhone accessories <ChevronRight /></a>
              </div>
              
              <div className="flex gap-6 overflow-x-auto no-scrollbar px-4 md:px-8 pb-12 snap-x">

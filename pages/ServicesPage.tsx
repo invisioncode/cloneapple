@@ -3,12 +3,12 @@ import ChapterNav from '../components/ChapterNav';
 import { ChevronRight } from '../components/Icons';
 
 const servicesChapters = [
-  { name: 'Apple One', icon: 'https://www.apple.com/v/services/j/images/chapternav/light/apple_one__b02w77464d2q_large.svg', url: '#' },
-  { name: 'Apple TV+', icon: 'https://www.apple.com/v/services/j/images/chapternav/light/apple_tv_plus__f44o7k94o1e6_large.svg', url: '#' },
-  { name: 'Apple Music', icon: 'https://www.apple.com/v/services/j/images/chapternav/light/apple_music__f8p35775436y_large.svg', url: '#' },
-  { name: 'Apple Arcade', icon: 'https://www.apple.com/v/services/j/images/chapternav/light/apple_arcade__e5d76l99c4oi_large.svg', url: '#' },
-  { name: 'Apple Podcasts', icon: 'https://www.apple.com/v/services/j/images/chapternav/light/apple_podcasts__e35x02v672qa_large.svg', url: '#' },
-  { name: 'Apple Books', icon: 'https://www.apple.com/v/services/j/images/chapternav/light/apple_books__d3753696602u_large.svg', url: '#' },
+  { name: 'Apple One', icon: 'https://www.apple.com/v/services/j/images/chapternav/light/apple_one__b02w77464d2q_large.svg', url: '/services/apple-one' },
+  { name: 'Apple TV+', icon: 'https://www.apple.com/v/services/j/images/chapternav/light/apple_tv_plus__f44o7k94o1e6_large.svg', url: '/services/apple-tv-plus' },
+  { name: 'Apple Music', icon: 'https://www.apple.com/v/services/j/images/chapternav/light/apple_music__f8p35775436y_large.svg', url: '/services/apple-music' },
+  { name: 'Apple Arcade', icon: 'https://www.apple.com/v/services/j/images/chapternav/light/apple_arcade__e5d76l99c4oi_large.svg', url: '/services/apple-arcade' },
+  { name: 'Apple Podcasts', icon: 'https://www.apple.com/v/services/j/images/chapternav/light/apple_podcasts__e35x02v672qa_large.svg', url: '/services/apple-podcasts' },
+  { name: 'Apple Books', icon: 'https://www.apple.com/v/services/j/images/chapternav/light/apple_books__d3753696602u_large.svg', url: '/services/apple-books' },
 ];
 
 const ServiceHero = ({ 
