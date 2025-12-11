@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLocation, Link } from 'react-router-dom';
-import { AppleLogo, ChevronRight } from './Icons';
+import { AppleIcon, ChevronRight } from './Icons';
 
 interface FooterSection {
   title: string;
@@ -74,20 +74,20 @@ const Breadcrumbs = () => {
   }
 
   return (
-    <nav aria-label="Breadcrumbs" className="py-4 mb-2 overflow-hidden">
-      <ol className="flex items-center gap-2 text-[12px] text-[#424245]">
+    <nav aria-label="Breadcrumbs" className="pt-4 mb-2 overflow-hidden">
+      <ol className="flex items-center gap-2 text-[12px] text-[#424245] leading-normal">
         <li>
-            <Link to="/" className="text-[#1d1d1f] hover:text-black -mt-0.5 block" aria-label="Apple">
-                <AppleLogo />
+            <Link to="/" className="text-[#1d1d1f] hover:text-black flex items-center" aria-label="Apple">
+                <AppleIcon className="h-[14px] w-auto -mt-[2px]" />
             </Link>
         </li>
         {pageName && (
           <>
-            <li aria-hidden="true" className="text-[#86868b] w-3 h-3 flex items-center">
-                <ChevronRight />
+            <li aria-hidden="true" className="text-[#86868b] flex items-center">
+                <ChevronRight className="h-[10px] w-[10px] stroke-[2.5]" />
             </li>
             <li>
-                <span aria-current="page">{pageName}</span>
+                <span aria-current="page" className="text-[#424245]">{pageName}</span>
             </li>
           </>
         )}
@@ -97,22 +97,16 @@ const Breadcrumbs = () => {
 };
 
 const Footer: React.FC = () => {
-    // On mobile, sections are collapsible. For this demo, we'll keep them open on desktop, simplified on mobile.
   return (
     <footer className="bg-[#f5f5f7] text-[#1d1d1f] text-xs pt-8 pb-6 px-4">
       <div className="max-w-[980px] mx-auto">
-        
-        {/* Footnotes */}
-        <section aria-label="Footnotes" className="border-b border-[#d2d2d7] pb-4 mb-0 text-[#6e6e73]">
-            <p className="mb-2">1. Apple TV yêu cầu đăng ký thuê bao.</p>
-            <p>Một số tính năng có thể thay đổi. Một số tính năng, ứng dụng và dịch vụ chỉ khả dụng ở một số khu vực hoặc ngôn ngữ.</p>
-        </section>
+
 
         {/* Breadcrumbs */}
         <Breadcrumbs />
 
         {/* Directory Columns */}
-        <nav aria-label="Apple Directory" className="hidden md:flex flex-wrap justify-between pt-0">
+        <nav aria-label="Apple Directory" className="hidden md:flex flex-wrap justify-between pt-5">
             <div className="w-1/5 pr-4">
                 <FooterColumn section={footerData[0]} />
                 <FooterColumn section={footerData[1]} />
@@ -150,7 +144,7 @@ const Footer: React.FC = () => {
         </nav>
 
         {/* Mobile Accordion (Simplified as stacked for this demo) */}
-        <nav aria-label="Apple Directory" className="md:hidden">
+        <nav aria-label="Apple Directory" className="md:hidden pt-4">
              {footerData.map((section) => (
                  <div key={section.title} className="border-b border-[#d2d2d7] py-3">
                      <h3 className="font-semibold text-[#1d1d1f]">{section.title}</h3>
