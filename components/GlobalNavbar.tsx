@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { NavItem } from '../types';
 import { AppleLogo, SearchIcon, BagIcon, MenuIcon } from './Icons';
 import { useAppLanguage, getPath } from '../utils/i18n';
@@ -10,7 +10,6 @@ const GlobalNavbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [hoveredNav, setHoveredNav] = useState<string | null>(null);
   const { lang, t } = useAppLanguage();
-  const navigate = useNavigate();
 
   // Helper to localize paths defined in static config
   const loc = (path: string) => getPath(path, lang);

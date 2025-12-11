@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { useLocation, Link, useNavigate } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import { AppleIcon, ChevronRight } from './Icons';
 import { useAppLanguage, getPath } from '../utils/i18n';
 
@@ -57,7 +57,6 @@ const Breadcrumbs = () => {
 
 const Footer: React.FC = () => {
   const { lang, t } = useAppLanguage();
-  const navigate = useNavigate();
   const location = useLocation();
 
   const loc = (path: string) => getPath(path, lang);
