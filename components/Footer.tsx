@@ -115,7 +115,7 @@ const Footer: React.FC = () => {
                     <a href="#" className="hover:underline text-[#424245]">Bản Đồ Trang Web</a>
                 </div>
                 <div className="mt-2 md:mt-0">
-                    <a href="#" className="hover:underline text-[#424245]">Việt Nam</a>
+                    <a href="/choose-country-region" className="hover:underline text-[#424245]">Việt Nam</a>
                 </div>
             </div>
         </div>

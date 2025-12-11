@@ -9,6 +9,7 @@ const navItems: NavItem[] = [
   { name: 'iPad', url: '/ipad' },
   { name: 'iPhone', url: '/iphone' },
   { name: 'Watch', url: '/watch' },
+  { name: 'Vision', url: '/apple-vision-pro' },
   { name: 'AirPods', url: '/airpods' },
   { name: 'TV & Nhà', url: '/tv-home' },
   { name: 'Giải Trí', url: '/services' },
