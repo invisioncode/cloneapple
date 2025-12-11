@@ -1,7 +1,18 @@
+export interface SubmenuItem {
+  name: string;
+  url: string;
+}
+
+export interface SubmenuColumn {
+  title?: string;
+  items: SubmenuItem[];
+}
+
 export interface NavItem {
   name: string;
   url: string;
   icon?: React.ReactNode;
+  submenu?: SubmenuColumn[];
 }
 
 export interface HeroProps {
