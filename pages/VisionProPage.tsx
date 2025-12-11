@@ -1,6 +1,5 @@
 import React from 'react';
 import LocalNav from '../components/LocalNav';
-import { ChevronRight } from '../components/Icons';
 
 // --- Data extracted from HTML ---
 

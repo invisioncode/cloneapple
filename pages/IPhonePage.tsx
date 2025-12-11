@@ -1,7 +1,7 @@
 import React from 'react';
 import ChapterNav from '../components/ChapterNav';
 import { ChevronRight } from '../components/Icons';
-import { ProductCard, FeatureCard, InfoCard } from '../components/Cards';
+import { ProductCard, FeatureCard } from '../components/Cards';
 
 const iphoneChapters = [
   { name: 'iPhone 17 Pro', icon: 'https://www.apple.com/v/iphone/home/ch/images/overview/chapternav/nav_iphone_17pro__d60uog2c064i_large.png', url: '#', new: true },

@@ -1,7 +1,7 @@
 import React from 'react';
 import ChapterNav from '../components/ChapterNav';
 import { ChevronRight } from '../components/Icons';
-import { ProductCard, FeatureCard, InfoCard } from '../components/Cards';
+import { ProductCard, FeatureCard } from '../components/Cards';
 
 const watchChapters = [
   { name: 'Apple Watch Series 11', icon: 'https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/store-card-13-watch-nav-202509_GEO_VN?wid=200&hei=130&fmt=png-alpha', url: '#', new: true },

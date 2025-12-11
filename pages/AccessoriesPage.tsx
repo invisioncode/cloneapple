@@ -1,5 +1,4 @@
 import React from 'react';
-import ChapterNav from '../components/ChapterNav';
 import { ChevronRight } from '../components/Icons';
 
 // --- Data ---

@@ -1,7 +1,7 @@
 import React from 'react';
 import ChapterNav from '../components/ChapterNav';
 import { ChevronRight } from '../components/Icons';
-import { ProductCard, FeatureCard } from '../components/Cards';
+import { FeatureCard } from '../components/Cards';
 
 const airpodsChapters = [
   { name: 'AirPods 4', icon: 'https://www.apple.com/v/airpods/ab/images/chapternav/airpods_4_light__c51717t43yqa_large.svg', url: '#' },
